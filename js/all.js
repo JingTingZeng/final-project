@@ -1,5 +1,5 @@
 //google map
-/*function initialize() {
+function initialize() {
 	var mapOptions = {
 	   	zoom: 8,//縮放層級
 	    center: new google.maps.LatLng(120.22, 22.44)//經緯度
@@ -9,7 +9,7 @@
 }
 google.maps.event.addDomListener(window, 'load', initialize);
 //延後載入地圖
-function loadScript() {
+/*function loadScript() {
 	var script = document.createElement('script');
 	script.type = 'text/javascript';
 	script.src = 'https://maps.googleapis.com/maps/api/js?v=3.exp' +
