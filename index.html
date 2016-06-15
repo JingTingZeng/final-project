@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="css/all.css" />
+	<script src="js/jquery-2.2.3.min.js"></script>
+	<script src="js/all.js"></script>
+	
+	<title>public WC</title>
+	<style type="text/css">
+	  	html { height: 100% }
+  		body { height: 100%; margin: 0; padding: 0 }
+  		.map-canvas { height: 60% }
+	</style>
+</head>
+<body>
+	<h1>匆衝沖</h1>
+	<div class="DropDownList">
+		<p>挑選適合您的宣洩環境</p>
+		高雄市地區 : 
+		<select class="selectArea">
+			<option value="null" selected>--請選擇地區-- </option>
+			<option value="楠梓">楠梓區</option>
+			<option value="左營">左營區</option>
+			<option value="鼓山">鼓山區</option>
+			<option value="三民">三民區</option>
+			<option value="苓雅">苓雅區</option>
+			<option value="新興">新興區</option>
+			<option value="前金">前金區</option>
+			<option value="鹽埕">鹽埕區</option>
+			<option value="前鎮">前鎮區</option>
+			<option value="旗津">旗津區</option>
+			<option value="小港">小港區</option>
+			<option value="鳳山">鳳山區</option>
+			<option value="茂林">茂林區</option>
+			<option value="甲仙">甲仙區</option>
+			<option value="六龜">六龜區</option>
+			<option value="杉林">杉林區</option>
+			<option value="美濃">美濃區</option>
+			<option value="內門">內門區</option>
+			<option value="仁武">仁武區</option>
+			<option value="田寮">田寮區</option>
+			<option value="旗山">旗山區</option>
+			<option value="梓官">梓官區</option>
+			<option value="阿蓮">阿蓮區</option>
+			<option value="湖內">湖內區</option>
+			<option value="岡山">岡山區</option>
+			<option value="茄萣">茄萣區</option>
+			<option value="路竹">路竹區</option>
+			<option value="鳥松">鳥松區</option>
+			<option value="永安">永安區</option>
+			<option value="燕巢">燕巢區</option>
+			<option value="大樹">大樹區</option>
+			<option value="大寮">大寮區</option>
+			<option value="林園">林園區</option>
+			<option value="彌陀">彌陀區</option>
+			<option value="橋頭">橋頭區</option>
+			<option value="大社">大社區</option>
+			<option value="那瑪夏">那瑪夏區</option>
+			<option value="桃源">桃源區</option>
+		</select><br/>
+		公廁類型 : 
+		<input type="checkbox" name="Type" value="宮">廟
+		<input type="checkbox" name="Type" value="公園">公園
+		<input type="checkbox" name="Type" value="醫院">醫院
+		<input type="checkbox" name="Type" value="國">學校
+		<input type="checkbox" name="Type" value="速食店">速食店
+		<input type="checkbox" name="Type" value="加油店">加油店
+		<input type="checkbox" name="Type" value="大賣場">大賣場
+		<input type="checkbox" name="Type" value="便利商店">便利商店
+		<input type="checkbox" name="Type" value="百貨公司">百貨公司
+		<input type="checkbox" name="Type" value="所">政府機構
+		<input type="checkbox" name="Type" value="all">全部<br />
+		無障礙公廁 : 
+		<label><input type="radio" name ="accessible" value="障">需要</label>
+		<label><input type="radio" name ="accessible" value="No" checked>不需要</label>
+
+		<input type="button" class="search" value="查詢">
+	</div>
+
+	<div class="result">
+		<table class="Table" border="1">
+				<tr>
+					<td>公廁姓名</td>
+					<td>公廁地址</td>
+				</tr>		  
+		</table>
+		<div class="map-canvas">
+			
+		</div>
+	</div>
+
+
+</body>
+</html>
