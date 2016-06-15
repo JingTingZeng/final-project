@@ -2,7 +2,7 @@
 function initialize() {
 	var mapOptions = {
 	   	zoom: 5,//縮放層級
-	    center: new google.maps.LatLng(120.22, 22.44)//經緯度
+	    center: new google.maps.LatLng(120.22, 22.44),//經緯度
 	    mapTypeId:google.maps.MapTypeId.ROADMAP
 	};
 
