@@ -1,11 +1,11 @@
 //google map
-/*var map;
+var map;
 		function initMap() {
 		  map = new google.maps.Map(document.getElementById('map'), {
 		    center: {lat: -34.397, lng: 150.644},
 		    zoom: 8
 		  });
-		}*/
+		}
 function codeAddress(){
 	var add = "台北市忠孝東路五段";
 	var geocoder = new google.maps.Geocoder();
