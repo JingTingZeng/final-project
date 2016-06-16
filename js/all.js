@@ -6,7 +6,18 @@ var map;
 		    zoom: 8
 		  });
 		}
-
+function codeAddress(){
+	var add = "台北市忠孝東路五段";
+	var geocoder = new google.maps.Geocoder();
+	geocoder.geocode( { address: add}, function(results, status) {
+		if (status == google.maps.GeocoderStatus.OK) {
+		$('.address').append("<ul><li>"+results[0].geometry.location.lng()+"</li><li>"+results[0].geometry.location.lat()+"</li></ul>");
+		} else {
+			alert("Geocode was not successful for the following reason: " + status);
+		}
+	});
+}
+codeAddress();
 $(function (){
     $(".search").click(function(){
         var data1;
