@@ -45,28 +45,32 @@ function initMap() {
         async defer></script>-->
     <script src="http://maps.googleapis.com/maps/api/js?sensor=false"></script> 
     <script>
-    	var geocoder = new google.maps.Geocoder();
-		geocoder.geocode({ address: '台北市忠孝東路五段' },
-		function (result, status) {
-			if (status == google.maps.GeocoderStatus.OK) {
-
-				var location = result[0].geometry.location;
-				alert(location);
-				// location.Pa 緯度
-				// location.Qa 經度
-
-			} else {
-				alert('解析失敗!回傳狀態為：' + status);
-			}
+		function codeAddress(){
+		var add = document.getElementById("ConstructionADD");
+		var Longitude = document.getElementById("Longitude");
+		var Latitude = document.getElementById("Latitude");
+		var geocoder = new google.maps.Geocoder();
+		geocoder.geocode( { address: add.value}, function(results, status) {
+		if (status == google.maps.GeocoderStatus.OK) {
+		Longitude.value = results[0].geometry.location.lng();
+		Latitude.value = results[0].geometry.location.lat();
+		} else {
+		alert("Geocode was not successful for the following reason: " + status);
+		}
 		});
+		}
 	</script>
   </head>
   <body>
     <div id="map"></div>
 
-	<div class="address">台北市羅斯福路四段1號</div>
-	<div class="lat"></div>
-	<div class="lng"></div> 
+	<input name="ConstructionADD" type="text" id="ConstructionADD" size="50" maxlength="50" onchange="codeAddress()"/>
+	<p align="left">
+	經度
+	<input name="Longitude" type="text" id="Longitude" size="10" maxlength="10" readonly="readonly"/>
+	緯度
+	<input name="Latitude" type="text" id="Latitude" size="10" maxlength="9" readonly="readonly"/>
+	</p>
 
     <div class="DropDownList">
 		<p>挑選適合您的宣洩環境</p>
