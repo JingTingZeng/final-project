@@ -50,7 +50,7 @@ function initMap() {
 		var geocoder = new google.maps.Geocoder();
 		geocoder.geocode( { address: add}, function(results, status) {
 		if (status == google.maps.GeocoderStatus.OK) {
-		$('.address').append("<ul><li>"+results[0].geometry.location.lng()+"</li><li>"+results[0].geometry.location.lat()+"</li></ul>");
+		$('body').append("<ul><li>"+results[0].geometry.location.lng()+"</li><li>"+results[0].geometry.location.lat()+"</li></ul>");
 		} else {
 		alert("Geocode was not successful for the following reason: " + status);
 		}
