@@ -41,8 +41,9 @@ function initMap() {
     </style>
 	<script src="js/jquery-2.2.3.min.js"></script>
 	<script src="js/all.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCfWp_3WyCa91tR0WlezEbKDifHdRh97sk&callback=initMap"
-        async defer></script>
+    <!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCfWp_3WyCa91tR0WlezEbKDifHdRh97sk&callback=initMap"
+        async defer></script>-->
+    <script src="http://maps.googleapis.com/maps/api/js?sensor=false"></script> 
     <script>
     	var geocoder = new google.maps.Geocoder();
 		geocoder.geocode({ address: '台北市忠孝東路五段' },
