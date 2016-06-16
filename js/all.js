@@ -70,7 +70,7 @@ $(document).ready(init);
                             map: map,
                             icon:image,
                             //title: data[index].name,
-                            html:"<ul><li>公廁名稱:"+data[index].name+"</li><li>"+data[index].address+"</li></ul>"
+                            html:"<ul><li>名稱 : "+data[index].name+"</li><li>地址 : "+data[index].address+"</li></ul>"
                         });
                         google.maps.event.addListener(marker, 'click', function() { 
                   			infowindow.setContent(this.html);
