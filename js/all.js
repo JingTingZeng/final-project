@@ -5,6 +5,12 @@ var map;
 		    center: {lat: 22.7175372, lng: 120.30318710000006},
 		    zoom: 12
 		  });
+		  var image='img/toilet.png';
+		  var beachMaker=new google.maps.Maker({
+		  	position:{lat: 22.7241687,lng:1 20.2766451},
+		  	map:map,
+		  	icon:image
+		  });
 		}
 function codeAddress(){
 	var add = "高雄市楠梓區";
