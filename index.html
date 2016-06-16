@@ -1,34 +1,3 @@
-<!--<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<link rel="stylesheet" href="css/all.css" />
-	<script src="js/jquery-2.2.3.min.js"></script>
-	<script src="js/all.js"></script>
-	
-	<script type="text/javascript">
-
-var map;
-function initMap() {
-  map = new google.maps.Map(document.getElementById('map'), {
-    center: {lat: -34.397, lng: 150.644},
-    zoom: 8
-  });
-}
-
-    </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCfWp_3WyCa91tR0WlezEbKDifHdRh97sk" type="text/javascript"></script>
-	<title>public WC</title>
-	<style type="text/css">
-      html, body { height: 100%; margin: 0; padding: 0; }
-      #map { height: 100%; }
-    </style>
-	
-</head>
-<body>
-	<h1>匆衝沖</h1>
-	<div id="map"></div>
-	</body>
-</html>-->
 <!DOCTYPE html>
 <html>
   <head>
@@ -42,62 +11,9 @@ function initMap() {
 	<script src="js/jquery-2.2.3.min.js"></script>
 	<script src="js/all.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCfWp_3WyCa91tR0WlezEbKDifHdRh97sk&callback=initMap"></script>
-	<script type="text/javascript">
-        $(document).ready(init);
-
-        //網頁上所有的DOM都載入後
-        function init() {
-            addMarker();
-        }
-        //加入標記點
-        function addMarker() {
-            $.ajax(
-            {
-                url: 'http://data.kaohsiung.gov.tw/Opendata/DownLoad.aspx?Type=2&CaseNo1=AH&CaseNo2=5&FileType=2&Lang=C&FolderType=U',
-                type: 'GET',
-                async: false,
-                data: {},
-                dataType: 'json',
-                success: function (data) {
-                    var first = true;
-                    var map;
-                    for (var index in data) {
-
-                        if (first == true) {//第一次執行迴圈
-                            /*以哪個緯經度中心來產生地圖*/
-                            var latlng = new google.maps.LatLng(data[index].緯度Lat, data[index].經度Lng);
-                            var myOptions = {
-                                zoom: 14,
-                                center: latlng,
-                                mapTypeId: google.maps.MapTypeId.ROADMAP
-                            };
-                            /*產生地圖*/
-                            map = new google.maps.Map($("#map")[0], myOptions);
-
-                            first = false;
-                        } //End if (first == true) 
-
-
-                        //建立緯經度座標
-                        var myLatlng = new google.maps.LatLng(data[index].緯度Lat, data[index].經度Lng);
-                        //加一個Marker到map中
-                        var image='img/toilet2.png';
-                        var marker = new google.maps.Marker({
-                            position: myLatlng,
-                            map: map,
-                            icon:image,
-                            title: data[index].name
-                        });
-                    } //End for (var index in data) 
-                }     //End success: function (data) 
-            });       //End jQuery Ajax
-        }             //End function addMarker() 
-
-    </script>
   </head>
   <body>
     <div class="address">高雄市楠梓區</div>
-    <!--<div id="map"></div>-->
     <div id="map"></div>
     <div class="DropDownList">
 		<p>挑選適合您的宣洩環境</p>
