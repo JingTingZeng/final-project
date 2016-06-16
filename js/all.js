@@ -6,40 +6,8 @@ var map;
 		    zoom: 8
 		  });
 		}
-/*function initialize() {
-	var mapOptions = {
-	   	zoom: 5,//縮放層級
-	    center: new google.maps.LatLng(120.22, 22.44),//經緯度
-	    
-	};
-
-	var map = new google.maps.Map(document.getElementById('map-canvas'),mapOptions);
-}
-google.maps.event.addDomListener(window, 'load', initialize);*/
-//延後載入地圖
-/*function loadScript() {
-	var script = document.createElement('script');
-	script.type = 'text/javascript';
-	script.src = 'https://maps.googleapis.com/maps/api/js?v=3.exp' +
-	      '&signed_in=true&callback=initialize';
-	document.body.appendChild(script);
-}
-window.onload = loadScript;*/
 
 $(function (){
-	/*$.ajax({
-            type:'GET',
-            url:'http://data.kaohsiung.gov.tw/Opendata/DownLoad.aspx?Type=2&CaseNo1=AH&CaseNo2=5&FileType=2&Lang=C&FolderType=U',
-            //dataType: 'json', 
-            success:function(data){
-            	var thisdata = JSON.parse(data);
-              	for(i=0;i<data.length;i++){
-		            var str;
-		            str='<tr><td>'+thisdata[i].name+'</td><td>'+thisdata[i].address+'</td></tr>'; 
-		            $('.Table').append(str);
-	        	}
-      		}
-    })*/
     $(".search").click(function(){
         var data1;
         $.when(
@@ -66,12 +34,15 @@ $(function (){
 	            var area=data1[i].address;
 	            var type=data1[i].name;
 	                if(area.match(select1)){
-	                	if(type.match(select2)){
-	                		if(type.match(select3)){
+	                	for(i=0;i<select2.length;i++){
+	                		if(type.match(select2[i])){
+	                			if(type.match(select3)){
 	                			str='<tr><td>'+type+'</td><td>'+area+'</td></tr>'; 
 	                        	$('.Table').append(str);
+	                			}
 	                		}
-	                	}/*else{
+	                	}
+	                	/*else{
 	                		str='<tr><td>'+type+'</td><td>'+area+'</td></tr>'; 
 	                       	$('.Table').append(str);
 	                	}*/
