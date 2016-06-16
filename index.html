@@ -44,14 +44,34 @@ function initMap() {
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCfWp_3WyCa91tR0WlezEbKDifHdRh97sk&callback=initMap"
         async defer></script>
     <script>
-		var geocoder = new google.maps.Geocoder();
-		var addr = $(".address").text();
-		geocoder.geocode({'address': addr}, function (results, status) {
-		        if (status == google.maps.GeocoderStatus.OK) {
-		            $('.lat').text(results[0].geometry.location.lat());
-		            $('.lng').text(results[0].geometry.location.lng());		            
-		    	}		        
-		});
+    	var i;
+        var split;
+
+        function trans() {
+            i = 0; 
+            var content = "台北市羅斯福路四段1號";
+            split = content.split("\n");
+            delayedLoop();
+        }
+
+        function delayedLoop() {
+            addressToLatLng(split[i]);
+            if (++i == split.length) {
+                return;
+            }
+                window.setTimeout(delayedLoop, 1500);
+            }
+
+		function addressToLatLng(addr){
+			var geocoder=new google.maps.Geocoder();
+			geocoder.geocode({
+				"address":addr
+			},function(results,status){
+				if(status == google.maps.GeocoderStatos.OK){
+					alert(result[0].geometry.location.lat()+","+results[0].geometry.location.lng());
+				}
+			});
+		}
 	</script>
   </head>
   <body>
