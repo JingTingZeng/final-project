@@ -41,36 +41,27 @@ function initMap() {
     </style>
 	<script src="js/jquery-2.2.3.min.js"></script>
 	<script src="js/all.js"></script>
-    <!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCfWp_3WyCa91tR0WlezEbKDifHdRh97sk&callback=initMap"
-        async defer></script>-->
-    <script src="http://maps.googleapis.com/maps/api/js?sensor=false"></script> 
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCfWp_3WyCa91tR0WlezEbKDifHdRh97sk&callback=initMap"
+        async defer></script>
+    <!--<script src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>-->
     <script>
 		function codeAddress(){
-		var add = document.getElementById("ConstructionADD");
-		var Longitude = document.getElementById("Longitude");
-		var Latitude = document.getElementById("Latitude");
+		var add = "台北市忠孝東路五段";
 		var geocoder = new google.maps.Geocoder();
-		geocoder.geocode( { address: add.value}, function(results, status) {
+		geocoder.geocode( { address: add}, function(results, status) {
 		if (status == google.maps.GeocoderStatus.OK) {
-		Longitude.value = results[0].geometry.location.lng();
-		Latitude.value = results[0].geometry.location.lat();
+		$('.address').append("<ul><li>"+results[0].geometry.location.lng()+"</li><li>"+results[0].geometry.location.lat()+"</li></ul>");
 		} else {
 		alert("Geocode was not successful for the following reason: " + status);
 		}
 		});
 		}
+		codeAddress();
 	</script>
   </head>
   <body>
     <div id="map"></div>
-
-	<input name="ConstructionADD" type="text" id="ConstructionADD" size="50" maxlength="50" onchange="codeAddress()"/>
-	<p align="left">
-	經度
-	<input name="Longitude" type="text" id="Longitude" size="10" maxlength="10" readonly="readonly"/>
-	緯度
-	<input name="Latitude" type="text" id="Latitude" size="10" maxlength="9" readonly="readonly"/>
-	</p>
+	<div class="address">台北市忠孝東路五段</div>
 
     <div class="DropDownList">
 		<p>挑選適合您的宣洩環境</p>
