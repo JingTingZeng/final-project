@@ -41,8 +41,7 @@ function initMap() {
     </style>
 	<script src="js/jquery-2.2.3.min.js"></script>
 	<script src="js/all.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCfWp_3WyCa91tR0WlezEbKDifHdRh97sk&callback=initMap"
-        async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCfWp_3WyCa91tR0WlezEbKDifHdRh97sk&callback=initMap"></script>
 	<script type="text/javascript">
         $(document).ready(init);
 
@@ -55,7 +54,7 @@ function initMap() {
             $.ajax(
             {
                 url: 'http://data.kaohsiung.gov.tw/Opendata/DownLoad.aspx?Type=2&CaseNo1=AH&CaseNo2=5&FileType=2&Lang=C&FolderType=U',
-                type: 'post',
+                type: 'GET',
                 async: false,
                 data: {},
                 dataType: 'json',
