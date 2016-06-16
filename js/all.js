@@ -69,8 +69,8 @@ $(document).ready(init);
                             position: myLatlng,
                             map: map,
                             icon:image,
-                            title: data[index].name,
-                            html:data[index].address
+                            //title: data[index].name,
+                            html:"<ul><li>公廁名稱:"+data[index].name+"</li><li>"+data[index].address+"</li></ul>"
                         });
                         google.maps.event.addListener(marker, 'click', function() { 
                   			infowindow.setContent(this.html);
