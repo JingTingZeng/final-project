@@ -42,6 +42,7 @@ $(document).ready(init);
                 dataType: 'json',
                 success: function (data) {
                     var first = true;
+                    var infowindow = new google.maps.InfoWindow();
                     var map;
                     for (var index in data) {
 
@@ -68,8 +69,13 @@ $(document).ready(init);
                             position: myLatlng,
                             map: map,
                             icon:image,
-                            title: data[index].name
+                            title: data[index].name,
+                            html:data[index].address
                         });
+                        google.maps.event.addListener(marker, 'click', function() { 
+                  			infowindow.setContent(this.html);
+                  			infowindow.open(map,this);
+                   		});
                     } //End for (var index in data) 
                 }     //End success: function (data) 
             });       //End jQuery Ajax
