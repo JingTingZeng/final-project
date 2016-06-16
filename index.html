@@ -35,10 +35,10 @@ function initMap() {
     <title>public WC</title>
     <meta name="viewport" content="initial-scale=1.0">
     <meta charset="utf-8">
-    <style>
+    <!--<style>
       html, body {height: 100%;margin: 0;padding: 0;}
       #map {height: 80%;width: 70%;}
-    </style>
+    </style>-->
 	<script src="js/jquery-2.2.3.min.js"></script>
 	<script src="js/all.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCfWp_3WyCa91tR0WlezEbKDifHdRh97sk&callback=initMap"></script>
@@ -59,8 +59,6 @@ function initMap() {
                 data: {},
                 dataType: 'json',
                 success: function (data) {
-
-
                     var first = true;
                     var map;
                     for (var index in data) {
@@ -74,7 +72,7 @@ function initMap() {
                                 mapTypeId: google.maps.MapTypeId.ROADMAP
                             };
                             /*產生地圖*/
-                            map = new google.maps.Map($("#map")[0], myOptions);
+                            map = new google.maps.Map($("#div_showMap")[0], myOptions);
 
                             first = false;
                         } //End if (first == true) 
@@ -99,7 +97,11 @@ function initMap() {
   </head>
   <body>
     <div class="address">高雄市楠梓區</div>
-    <div id="map"></div>
+    <!--<div id="map"></div>-->
+    <form id="form1" runat="server">
+    <div id="div_showMap" style="width: 800px; height: 600px">
+    </div>
+    </form>
     <div class="DropDownList">
 		<p>挑選適合您的宣洩環境</p>
 		高雄市地區 : 
