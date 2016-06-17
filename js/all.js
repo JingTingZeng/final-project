@@ -22,9 +22,9 @@ function init(){
 	        	for(i=0;i<data1.length;i++){
 		            if (first == true) {//第一次執行迴圈
 	                    /*以哪個緯經度中心來產生地圖*/
-	                    var latlng = new google.maps.LatLng(22.44, 120.20);
+	                    var latlng = new google.maps.LatLng(22.729485001, 120.2922123);
 	                    var myOptions = {
-	                        zoom: 11,
+	                        zoom: 12,
 	                        center: latlng,
 	                        mapTypeId: google.maps.MapTypeId.ROADMAP
 	                    };
