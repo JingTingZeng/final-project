@@ -24,7 +24,7 @@ function init(){
 	                    /*以哪個緯經度中心來產生地圖*/
 	                    var latlng = new google.maps.LatLng(22.729485001, 120.2922123);
 	                    var myOptions = {
-	                        zoom: 13,
+	                        zoom: 14,
 	                        center: latlng,
 	                        mapTypeId: google.maps.MapTypeId.ROADMAP
 	                    };
