@@ -1,5 +1,7 @@
-$(function (){
+$(document).ready(init);
+function init(){
 	//初始位置
+
 
 	//查詢事件
     $(".search").click(function(){
@@ -65,7 +67,24 @@ $(function (){
                   						infowindow.setContent(this.html);
                   						infowindow.open(map,this);
                    					});
-		                		}//End if(type.match(select))
+		                		}else{
+		                			//建立緯經度座標
+                    				var myLatlng = new google.maps.LatLng(data1[i].緯度Lat, data1[i].經度Lng);
+                    				//加一個Marker到map中
+                    				var image='img/toilet3.png';
+                    				var marker = new google.maps.Marker({
+                        				position: myLatlng,
+                        				center:myLatlng,
+                        				map: map,
+                        				icon:image,
+                        				html:"<ul><li>名稱 : "+type+"</li><li>地址 : "+area+"</li></ul>"
+                    				});
+                    				//點擊對話框事件    
+                   					google.maps.event.addListener(marker, 'click', function(){ 
+                  						infowindow.setContent(this.html);
+                  						infowindow.open(map,this);
+                   					});
+		                		}
 	                		}//End for(j=0;j<select2.length;j++)
 	                	}//End if(type.match(select3))
 	                }//End if(area.match(select1))
@@ -74,7 +93,7 @@ $(function (){
         
         });//End .then(function()
     });//End $(".search").click(function()
-}); //End $(function ()
+} //End $(function ()
 
 
 	
