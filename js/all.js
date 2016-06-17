@@ -28,19 +28,19 @@ $(function (){
         var map;
         if(select1 !== "null"){
         	for(i=0;i<data1.length;i++){
-	            /*if (first == true) {//第一次執行迴圈
-                    /*以哪個緯經度中心來產生地圖*//*
-                    var latlng = new google.maps.LatLng(22.729485001, 120.2922123);
+	            if (first == true) {//第一次執行迴圈
+                    /*以哪個緯經度中心來產生地圖*/
+                    var latlng = new google.maps.LatLng(data1[i].緯度Lat, data1[i].經度Lng);
                     var myOptions = {
                         zoom: 14,
                         center: latlng,
                         mapTypeId: google.maps.MapTypeId.ROADMAP
                     };
-                    /*產生地圖*//*
+                    /*產生地圖*/
                     map = new google.maps.Map($("#map")[0], myOptions);
 
                     first = false;
-                } //End if (first == true) */
+                } //End if (first == true) 
 	            var str;
 	            var area=data1[i].address;
 	            var type=data1[i].name;
