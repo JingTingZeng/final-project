@@ -55,11 +55,11 @@ $(function (){
                     				var image='img/toilet3.png';
                     				var marker = new google.maps.Marker({
                         				position: myLatlng,
+                        				center:myLatlng,
                         				map: map,
                         				icon:image,
                         				html:"<ul><li>名稱 : "+type+"</li><li>地址 : "+area+"</li></ul>"
                     				});
-
                     				//點擊對話框事件    
                    					google.maps.event.addListener(marker, 'click', function(){ 
                   						infowindow.setContent(this.html);
