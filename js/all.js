@@ -1,4 +1,7 @@
 $(function (){
+	//初始位置
+
+	//查詢事件
     $(".search").click(function(){
         var data1;
         $.when(
@@ -25,19 +28,19 @@ $(function (){
         var map;
         if(select1 !== "null"){
         	for(i=0;i<data1.length;i++){
-	            if (first == true) {//第一次執行迴圈
-                    /*以哪個緯經度中心來產生地圖*/
+	            /*if (first == true) {//第一次執行迴圈
+                    /*以哪個緯經度中心來產生地圖*//*
                     var latlng = new google.maps.LatLng(22.729485001, 120.2922123);
                     var myOptions = {
                         zoom: 14,
                         center: latlng,
                         mapTypeId: google.maps.MapTypeId.ROADMAP
                     };
-                    /*產生地圖*/
+                    /*產生地圖*//*
                     map = new google.maps.Map($("#map")[0], myOptions);
 
                     first = false;
-                } //End if (first == true) 
+                } //End if (first == true) */
 	            var str;
 	            var area=data1[i].address;
 	            var type=data1[i].name;
@@ -62,43 +65,16 @@ $(function (){
                   						infowindow.setContent(this.html);
                   						infowindow.open(map,this);
                    					});
-		                			/*str='<tr><td>'+type+'</td><td>'+area+'</td></tr>'; 
-		                        	$('.Table').append(str);*/
-		                		}
-	                		}
-	                	}else{
-	                		
-	                	}
-	                }/*else if(area.match(select1)){
-	                	for(x=0;x<select2.length;x++){
-		                		select=select2[x];
-		                		if(type.match(select)){
-		                			str='<tr><td>'+type+'</td><td>'+area+'</td></tr>'; 
-		                        	$('.Table').append(str);
-		                		}/*else{
-		                			str='<tr><td colspan="2">'+"此區域查無此類型的廁所"+'</td></tr>';
-		                			$('.Table').append(str);
-		                		}*/
-	                		//}
-	                //}*/
-	                /*else{
-	                	str='<tr><td colspan="2">'+"此區域查無廁所"+'</td></tr>';
-		                $('.Table').append(str);
-	                }*/
-            }
-        }/*else if(select1 == "null" && select2 =="null"){
-        	for(i=0;i<data1.length;i++){
-	            var str;
-	            var area=data1[i].address;
-	            var type=data1[i].name;
-	            str='<tr><td>'+type+'</td><td>'+area+'</td></tr>'; 
-	            $('.Table').append(str);
-	        }
-        } */
+		                		}//End if(type.match(select))
+	                		}//End for(j=0;j<select2.length;j++)
+	                	}//End if(type.match(select3))
+	                }//End if(area.match(select1))
+            }//End for(i=0;i<data1.length;i++)
+        }//End if(select1 !== "null")
         
-        });
-    });
-}); 
+        });//End .then(function()
+    });//End $(".search").click(function()
+}); //End $(function ()
 
 
 	
