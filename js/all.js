@@ -17,6 +17,7 @@ function init(){
 	        //對話框
 	        var infowindow = new google.maps.InfoWindow();
 	        var map;
+	        var select1=$('.selectArea').val();
 	        if(select1 == "null"){
 	        	for(i=0;i<data1.length;i++){
 		            if (first == true) {//第一次執行迴圈
