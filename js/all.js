@@ -47,7 +47,7 @@ function init(){
 
 	                    first = false;
 	                } //End if (first == true) 
-		            var str;
+		            /*var str;
 		            var area=data1[i].address;
 		            var type=data1[i].name;
 		                if(area.match("楠梓區")){
@@ -67,7 +67,7 @@ function init(){
 				                  		infowindow.open(map,this);
 				                   	});
 								
-		                }//End if(area.match("楠梓區"))
+		                }*///End if(area.match("楠梓區"))
 	            }//End for(i=0;i<data1.length;i++)
 	        }//End if(select1 !== "null")
 	    });//End .then(function()
