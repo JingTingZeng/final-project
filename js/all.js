@@ -32,8 +32,7 @@ function init(){
 	        var map;
 	        var select1=$('.selectArea').val();
 	        if(select1 == "null"){
-	        	for(i=0;i<data1.length;i++){
-		            if (first == true) {//第一次執行迴圈
+	        	if (first == true) {//第一次執行迴圈
 	                    //以哪個緯經度中心來產生地圖
 	                    var latlng = new google.maps.LatLng(22.729485001, 120.2922123);
 	                    var myOptions = {
@@ -47,7 +46,8 @@ function init(){
 
 	                    first = false;
 	                } //End if (first == true) 
-		            /*var str;
+	        	for(i=0;i<data1.length;i++){
+		            var str;
 		            var area=data1[i].address;
 		            var type=data1[i].name;
 		                if(area.match("楠梓區")){
@@ -67,7 +67,7 @@ function init(){
 				                  		infowindow.open(map,this);
 				                   	});
 								
-		                }*///End if(area.match("楠梓區"))
+		                }//End if(area.match("楠梓區"))
 	            }//End for(i=0;i<data1.length;i++)
 	        }//End if(select1 !== "null")
 	    });//End .then(function()
@@ -111,7 +111,6 @@ function init(){
                     				//加一個Marker到map中
                     				var image='img/toilet3.png';
                     				var marker = new google.maps.Marker({
-                        				center: myLatlng,
                         				position: myLatlng,
                         				map: map,
                         				icon:image,
@@ -129,7 +128,6 @@ function init(){
                     				//加一個Marker到map中
                     				var image='img/toilet3.png';
                     				var marker = new google.maps.Marker({
-                        				center: myLatlng,
                         				position: myLatlng,
                         				map: map,
                         				icon:image,
