@@ -1,5 +1,17 @@
 $(document).ready(init);
 function init(){
+	//地址轉經緯度
+	function codeAddress(add){
+		var geocoder = new google.maps.Geocoder();
+		geocoder.geocode( { address: add}, function(results, status) {
+		if (status == google.maps.GeocoderStatus.OK) {
+			Lng=results[0].geometry.location.lng();
+			Lat=results[0].geometry.location.lat();
+		} else {
+			alert("Geocode was not successful for the following reason: " + status);
+		}
+	});
+	}
 	//初始位置(列出楠梓區所有的點)
 	var data1;
     $.when(
@@ -38,7 +50,8 @@ function init(){
 		            var type=data1[i].name;
 		                if(area.match("楠梓區")){
 			                //建立緯經度座標
-	                    	var myLatlng = new google.maps.LatLng(data1[i].緯度Lat, data1[i].經度Lng);
+			                codeAddress(area);
+	                    	var myLatlng = new google.maps.LatLng(Lat, Lng);
 	                    	//加一個Marker到map中
 	                    	var image='img/toilet3.png';
 	                    	var marker = new google.maps.Marker({
