@@ -13,7 +13,7 @@ function init(){
 	});
 	}
 	//初始位置(列出楠梓區所有的點)
-	function start(){
+	/*function start(){
 	var data1;
     $.when(
         $.ajax({
@@ -34,7 +34,7 @@ function init(){
 	        if(select1 == "null"){
 	        	for(i=0;i<data1.length;i++){
 		            if (first == true) {//第一次執行迴圈
-	                    /*以哪個緯經度中心來產生地圖*/
+	                    //以哪個緯經度中心來產生地圖
 	                    var latlng = new google.maps.LatLng(22.729485001, 120.2922123);
 	                    var myOptions = {
 	                        zoom: 14,
@@ -42,7 +42,7 @@ function init(){
 	                        mapTypeId: google.maps.MapTypeId.ROADMAP
 	                        //ROADMAP 顯示 Google 地圖的正常、預設 2D 地圖方塊
 	                    };
-	                    /*產生地圖*/
+	                    //產生地圖
 	                    map = new google.maps.Map($("#map")[0], myOptions);
 
 	                    first = false;
@@ -72,7 +72,7 @@ function init(){
 	        }//End if(select1 !== "null")
 	    });//End .then(function()
     }
-    start();
+    start();*/
 	//查詢事件
     $(".search").click(function(){
         var data2;
