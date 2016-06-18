@@ -111,6 +111,7 @@ function init(){
                     				//加一個Marker到map中
                     				var image='img/toilet3.png';
                     				var marker = new google.maps.Marker({
+                        				center: myLatlng,
                         				position: myLatlng,
                         				map: map,
                         				icon:image,
@@ -124,10 +125,11 @@ function init(){
 		                		}else{
 		                			//建立緯經度座標
                     				var myLatlng = new google.maps.LatLng(data2[x].緯度Lat, data2[x].經度Lng);
-                    				map.setCenter(new GLatLng(data2[x].緯度Lat, data2[x].經度Lng), 13);
+                    				
                     				//加一個Marker到map中
                     				var image='img/toilet3.png';
                     				var marker = new google.maps.Marker({
+                        				center: myLatlng,
                         				position: myLatlng,
                         				map: map,
                         				icon:image,
