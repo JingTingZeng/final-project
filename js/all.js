@@ -50,7 +50,7 @@ function init(){
 		            var type=data1[i].name;
 		                if(area.match("楠梓區")){
 									//建立緯經度座標
-	                    			var myLatlng = new google.maps.LatLng(Lat, Lng);
+	                    			var myLatlng = new google.maps.LatLng(data1[i].緯度Lat, data1[i].經度Lng);
 	                    			//加一個Marker到map中
 	                    			var image='img/toilet3.png';
 	                    			var marker = new google.maps.Marker({
