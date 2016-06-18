@@ -13,6 +13,7 @@ function init(){
 	});
 	}
 	//初始位置(列出楠梓區所有的點)
+	function start(){
 	var data1;
     $.when(
         $.ajax({
@@ -70,7 +71,8 @@ function init(){
 	            }//End for(i=0;i<data1.length;i++)
 	        }//End if(select1 !== "null")
 	    });//End .then(function()
-
+    }
+    start();
 	//查詢事件
     $(".search").click(function(){
         var data2;
@@ -145,6 +147,11 @@ function init(){
         });//End .then(function()
     });//End $(".search").click(function()
 } //End $(function ()
+
+//重設
+function clear1(){
+  start();
+}
 
 
 	
