@@ -49,22 +49,30 @@ function init(){
 		            var area=data1[i].address;
 		            var type=data1[i].name;
 		                if(area.match("楠梓區")){
-			                //建立緯經度座標
-			                codeAddress(area);
-	                    	var myLatlng = new google.maps.LatLng(Lat, Lng);
-	                    	//加一個Marker到map中
-	                    	var image='img/toilet3.png';
-	                    	var marker = new google.maps.Marker({
-	                        	position: myLatlng,
-	                        	map: map,
-	                        	icon:image,
-	                        	html:"<ul><li>名稱 : "+type+"</li><li>地址 : "+area+"</li></ul>"
-	                    	});
-	                    	//點擊對話框事件    
-	                   		google.maps.event.addListener(marker, 'click', function(){ 
-	                  			infowindow.setContent(this.html);
-	                  			infowindow.open(map,this);
-	                   		});
+							var geocoder = new google.maps.Geocoder();
+							geocoder.geocode( { address: area}, function(results, status) {
+								if (status == google.maps.GeocoderStatus.OK) {
+									Lng=results[0].geometry.location.lng();
+									Lat=results[0].geometry.location.lat();
+									//建立緯經度座標
+	                    			var myLatlng = new google.maps.LatLng(Lat, Lng);
+	                    			//加一個Marker到map中
+	                    			var image='img/toilet3.png';
+	                    			var marker = new google.maps.Marker({
+	                        			position: myLatlng,
+	                        			map: map,
+	                        			icon:image,
+	                        			html:"<ul><li>名稱 : "+type+"</li><li>地址 : "+area+"</li></ul>"
+	                    			});
+				                    //點擊對話框事件    
+				                   	google.maps.event.addListener(marker, 'click', function(){ 
+				                  		infowindow.setContent(this.html);
+				                  		infowindow.open(map,this);
+				                   	});
+								} else {
+									alert("Geocode was not successful for the following reason: " + status);
+								}
+							});  //End geocoder.geocode
 		                }//End if(area.match("楠梓區"))
 	            }//End for(i=0;i<data1.length;i++)
 	        }//End if(select1 !== "null")
