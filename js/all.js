@@ -146,7 +146,9 @@ function init(){
         });//End .then(function()
     });//End $(".search").click(function()
 } //End $(function ()
-
+function clear1(){
+  document.getElementById('selectArea').value="null";
+}
 
 	
 
