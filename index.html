@@ -18,7 +18,7 @@
     <div class="DropDownList">
 		<p>挑選適合您的宣洩環境</p>
 		高雄市地區 : 
-		<select id="selectArea">
+		<select class="selectArea">
 			<option value="null" selected>請選擇地區 </option>
 			<option value="楠梓區">楠梓區</option>
 			<option value="左營區">左營區</option>
@@ -69,13 +69,13 @@
 		<input type="checkbox" name="Type" value="大賣場">大賣場
 		<input type="checkbox" name="Type" value="便利商店">便利商店
 		<input type="checkbox" name="Type" value="百貨公司">百貨公司
-		<input type="checkbox" name="Type" value="所">政府機構
+		<input type="checkbox" name="Type" value="所">政府機構<br/>
 		無障礙公廁 : 
 		<label><input type="radio" name ="accessible" value="障">需要</label>
 		<label><input type="radio" name ="accessible" value="No" checked>不需要</label>
 
 		<input type="button" class="search" value="查詢">
-		<input type="button" onclick="clear1()"  value="重新查詢" />
+		<input type="reset">
 	</div>
 	<div id="map"></div>
   </body>
