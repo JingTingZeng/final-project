@@ -39,6 +39,7 @@ function init(){
 	                        zoom: 14,
 	                        center: latlng,
 	                        mapTypeId: google.maps.MapTypeId.ROADMAP
+	                        //ROADMAP 顯示 Google 地圖的正常、預設 2D 地圖方塊
 	                    };
 	                    /*產生地圖*/
 	                    map = new google.maps.Map($("#map")[0], myOptions);
@@ -72,6 +73,7 @@ function init(){
 
 	//查詢事件
     $(".search").click(function(){
+    	setMapOnAll(null);
         var data2;
         $.when(
           	$.ajax({
