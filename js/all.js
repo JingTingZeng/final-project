@@ -13,7 +13,7 @@ function init(){
 	});
 	}
 	//初始位置(列出楠梓區所有的點)
-	/*function start(){
+	function start(){
 	var data1;
     $.when(
         $.ajax({
@@ -72,7 +72,7 @@ function init(){
 	        }//End if(select1 !== "null")
 	    });//End .then(function()
     }
-    start();*/
+    start();
 	//查詢事件
     $(".search").click(function(){
         var data2;
@@ -124,6 +124,7 @@ function init(){
 		                		}else{
 		                			//建立緯經度座標
                     				var myLatlng = new google.maps.LatLng(data2[x].緯度Lat, data2[x].經度Lng);
+                    				map.setCenter(new GLatLng(data2[x].緯度Lat, data2[x].經度Lng), 13);
                     				//加一個Marker到map中
                     				var image='img/toilet3.png';
                     				var marker = new google.maps.Marker({
@@ -150,7 +151,7 @@ function init(){
 
 //重設
 function clear1(){
-  start();
+  start();//回到初始位置
 }
 
 
