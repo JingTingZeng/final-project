@@ -73,7 +73,6 @@ function init(){
 
 	//查詢事件
     $(".search").click(function(){
-    	setMapOnAll(null);
         var data2;
         $.when(
           	$.ajax({
