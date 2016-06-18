@@ -32,20 +32,16 @@ function init(){
 	        var map;
 	        var select1=$('.selectArea').val();
 	        if(select1 == "null"){
-	        	if (first == true) {//第一次執行迴圈
-	                    //以哪個緯經度中心來產生地圖
-	                    var latlng = new google.maps.LatLng(22.729485001, 120.2922123);
-	                    var myOptions = {
-	                        zoom: 14,
-	                        center: latlng,
-	                        mapTypeId: google.maps.MapTypeId.ROADMAP
-	                        //ROADMAP 顯示 Google 地圖的正常、預設 2D 地圖方塊
-	                    };
-	                    //產生地圖
-	                    map = new google.maps.Map($("#map")[0], myOptions);
-
-	                    first = false;
-	                } //End if (first == true) 
+				//以哪個緯經度中心來產生地圖
+	            var latlng = new google.maps.LatLng(22.729485001, 120.2922123);
+	            var myOptions = {
+	                zoom: 14,
+	                center: latlng,
+	                mapTypeId: google.maps.MapTypeId.ROADMAP
+	                //ROADMAP 顯示 Google 地圖的正常、預設 2D 地圖方塊
+	            };
+	            //產生地圖
+	            map = new google.maps.Map($("#map")[0], myOptions);
 	        	for(i=0;i<data1.length;i++){
 		            var str;
 		            var area=data1[i].address;
