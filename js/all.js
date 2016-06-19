@@ -60,7 +60,7 @@ function init(){
         var select2=[];
             $("[name=Type]:checkbox:checked").each(function(){
                 select2.push($(this).val());
-                console.log(select2.length);
+                //console.log(select2.length);
             });
         var select3=$("input[name=accessible]:checked").val();
         //若沒選擇區域會彈出提醒視窗
@@ -145,7 +145,7 @@ function init(){
     });//End $(".search").click(function()
 } //End $(function init()
 
-//印出結果的函式
+//印出結果圖標的函式
 function printResult(arr){
 	var first=true;
     for( var i = 0; i < arr.length; i++){
@@ -155,13 +155,15 @@ function printResult(arr){
         var myLatlng = new google.maps.LatLng(arr[i].緯度Lat, arr[i].經度Lng);
 		//加一個Marker到map中
         var image='img/toilet3.png';
+        var latlngbounds=new google.maps.LatLngBounds();
         var marker = new google.maps.Marker({
             position: myLatlng,
-            //setMap: map,
+            map: map,
             icon:image,
             html:"<ul><li>名稱 : "+arr[i].name+"</li><li>地址 : "+arr[i].address+"</li></ul>"
         });
-        marker.setMap(map.getMap());
+        latlngbounds.extend(myLatlng);
+        map.fitBounds(latlngbounds);
 		//點擊對話框事件    
         google.maps.event.addListener(marker, 'click', function(){ 
             infowindow.setContent(this.html);
