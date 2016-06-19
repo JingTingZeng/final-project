@@ -14,7 +14,7 @@ function init(){
       		}
         })
         ).then(function(){
-	        /*//對話框
+	        //對話框
 	        var infowindow = new google.maps.InfoWindow();
 	        var map;
 			//以哪個緯經度中心來產生地圖
@@ -49,7 +49,7 @@ function init(){
 				    });
 								
 		        }//End if(area.match("楠梓區"))
-	        }//End for(i=0;i<data1.length;i++)*/
+	        }//End for(i=0;i<data1.length;i++)
 	    });//End .then(function()
     }
     start();
@@ -152,17 +152,17 @@ function printResult(arr){
     	//以第一個陣列元素為地圖中心
     	//map.setCenter(arr[0].緯度Lat, arr[0].經度Lng);
     	var infowindow = new google.maps.InfoWindow();
-	        var map;
-			//以哪個緯經度中心來產生地圖
-	        var latlng = new google.maps.LatLng(arr[i].緯度Lat, arr[i].經度Lng);
-	        var myOptions = {
-	            zoom: 14,
-	            center: latlng,
-	            mapTypeId: google.maps.MapTypeId.ROADMAP
-	            //ROADMAP 顯示 Google 地圖的正常、預設 2D 地圖方塊
-	        };
-	        //產生地圖
-	        map = new google.maps.Map($("#map")[0], myOptions); 
+	    var map;
+		//以哪個緯經度中心來產生地圖
+	    var latlng = new google.maps.LatLng(arr[0].緯度Lat, arr[0].經度Lng);
+	    var myOptions = {
+	        zoom: 14,
+	        center: latlng,
+	        mapTypeId: google.maps.MapTypeId.ROADMAP
+	        //ROADMAP 顯示 Google 地圖的正常、預設 2D 地圖方塊
+	    };
+	    //產生地圖
+	    map = new google.maps.Map($("#map")[0], myOptions); 
         //建立緯經度座標
         var myLatlng = new google.maps.LatLng(arr[i].緯度Lat, arr[i].經度Lng);
 		//加一個Marker到map中
