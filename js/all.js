@@ -100,7 +100,7 @@ function init(){
             var arr1 = new Array();//arr1:全部條件皆符合的結果
             var arr2 = new Array();//arr2:符合部分條件的的結果 
             var arr3 = new Array();//arr3:符合單一條件的的結果  
-            if( select3 != "" ){ //查詢須包含殘障廁所
+            if( select3 != "No" ){ //查詢須包含殘障廁所
                 //for(i=0;i<data1.length;i++){ 
             	for(i=0;i<5393;i++){  //第5393筆(鳳山區公有第一市場男廁)資料後又開始重複
     	            var str;
