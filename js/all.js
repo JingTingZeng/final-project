@@ -152,17 +152,17 @@ function printResult(arr){
     	//以第一個陣列元素為地圖中心
     	//map.setCenter(arr[0].緯度Lat, arr[0].經度Lng); 
         //建立緯經度座標
-        var myLatlng = new google.maps.LatLng(arr[i].緯度Lat, arr[i].經度Lng);
+        var myLatlng2 = new google.maps.LatLng(arr[i].緯度Lat, arr[i].經度Lng);
 		//加一個Marker到map中
         var image='img/toilet3.png';
-        var marker = new google.maps.Marker({
-            position: myLatlng,
+        var marker2 = new google.maps.Marker({
+            position: myLatlng2,
             map: map,
             icon:image,
             html:"<ul><li>名稱 : "+arr[i].name+"</li><li>地址 : "+arr[i].address+"</li></ul>"
         });
 		//點擊對話框事件    
-        google.maps.event.addListener(marker, 'click', function(){ 
+        google.maps.event.addListener(marker2, 'click', function(){ 
             infowindow.setContent(this.html);
             infowindow.open(map,this);
         });
