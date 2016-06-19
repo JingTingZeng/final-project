@@ -193,7 +193,7 @@ function printResult(arr){
 	            	icon:image,
 	            	html:"<ul><li>名稱 : "+name+"</li><li>地址 : "+add+"</li></ul>"
         		});
-        		map = new google.maps.Map($("#map")[0], merker);
+        		map = new google.maps.Map($("#map")[0], marker);
 				//點擊對話框事件    
 		        google.maps.event.addListener(marker, 'click', function(){ 
 		            infowindow.setContent(this.html);
