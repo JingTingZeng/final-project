@@ -152,7 +152,6 @@ function printResult(arr){
 	var name=arr[i].name;
 	var infowindow = new google.maps.InfoWindow();
 	for( var i = 0; i < arr.length; i++){
-		
 		var geocoder = new google.maps.Geocoder();
 		geocoder.geocode( { address: add}, function(results, status) {
 			if (status == google.maps.GeocoderStatus.OK) {
