@@ -145,9 +145,9 @@ function init(){
     });//End $(".search").click(function()
 } //End $(function init()
 
-//印出結果圖標的函式
+//將地址轉經緯再印出結果圖標的函式
 function printResult(arr){
-	/*for( var i = 0; i < arr.length; i++){
+	for( var i = 0; i < arr.length; i++){
 		var add=arr[i].address;
 		var name=arr[i].name;
 		var geocoder = new google.maps.Geocoder();
@@ -186,8 +186,8 @@ function printResult(arr){
 			}
 		});
 	}
-}*/
-    for( var i = 0; i < arr.length; i++){
+}
+/*    for( var i = 0; i < arr.length; i++){
     	var add=arr[i].address;
     	codeAddress(add);
     	
@@ -234,7 +234,7 @@ function codeAddress(add){
 				alert("Geocode was not successful for the following reason: " + status);
 		}
 	});
-}
+}*/
 
 //重設
 function clear1(){
