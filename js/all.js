@@ -146,7 +146,7 @@ function init(){
 
 //將地址轉經緯再印出結果圖標的函式
 function printResult(arr){
-		var add1=arr[0].address;
+		/*var add1=arr[0].address;
 		var name1=arr[0].name;
 		var geocoder = new google.maps.Geocoder();
 		geocoder.geocode( { address: add1}, function(results, status) {
@@ -178,7 +178,7 @@ function printResult(arr){
 			} else {
 					//alert("Geocode was not successful for the following reason: " + status);
 			}
-		});
+		});*/
 	//以陣列第一個地址的經緯度為中心來產生地圖
 
 	/*var map;
@@ -189,22 +189,29 @@ function printResult(arr){
 	//};
 	//產生地圖
 	//map = new google.maps.Map($("#map")[0], myOption);
-	/*for( var i = 0; i < arr.length; i++){
+	var first=true;
+	var map;
+	var infowindow = new google.maps.InfoWindow();
+	for( var i = 0; i < arr.length; i++){
 		var add=arr[i].address;
 		var name=arr[i].name;
 		var geocoder = new google.maps.Geocoder();
 		geocoder.geocode( { address: add}, function(results, status) {
 			if (status == google.maps.GeocoderStatus.OK) {
 				convertLatLng=results[0].geometry.location;
-    			var infowindow = new google.maps.InfoWindow();
-	    		//產生地圖
-	    		var map;
-	    		var myOptions = {
+				if(first==true){
+					var myOptions = {
 	        		zoom: 14,
 	        		center: convertLatLng,
 	        		mapTypeId: google.maps.MapTypeId.ROADMAP
 	    		};
-	    		map = new google.maps.Map($("#map")[0], myOptions); 
+	    		map = new google.maps.Map($("#map")[0], myOptions);
+	    		first=false;
+				}
+    			
+	    		
+	    		
+	    		 
 				//加一個Marker到map中
        			var image='img/toilet3.png';
         		var marker = new google.maps.Marker({
@@ -223,7 +230,7 @@ function printResult(arr){
 					//alert("Geocode was not successful for the following reason: " + status);
 			}
 		});
-	}*/
+	}
 }
 
 //重設
