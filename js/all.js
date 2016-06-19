@@ -189,11 +189,11 @@ function printResult(arr){
        			var image='img/toilet3.png';
         		var marker = new google.maps.Marker({
 	            	position: convertLatLng,
-	            	map: map,
+	            	//map: map,
 	            	icon:image,
 	            	html:"<ul><li>名稱 : "+name+"</li><li>地址 : "+add+"</li></ul>"
         		});
-        		map = new google.maps.Map($("#map")[0], marker);
+        		marker.setMap(map);
 				//點擊對話框事件    
 		        google.maps.event.addListener(marker, 'click', function(){ 
 		            infowindow.setContent(this.html);
