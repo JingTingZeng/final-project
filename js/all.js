@@ -147,7 +147,7 @@ function init(){
 
 //印出結果圖標的函式
 function printResult(arr){
-	for( var i = 0; i < arr.length; i++){
+	/*for( var i = 0; i < arr.length; i++){
 		var add=arr[i].address;
 		var name=arr[i].name;
 		var geocoder = new google.maps.Geocoder();
@@ -186,29 +186,30 @@ function printResult(arr){
 			}
 		});
 	}
-}
-    /*for( var i = 0; i < arr.length; i++){
+}*/
+    for( var i = 0; i < arr.length; i++){
     	var add=arr[i].address;
+    	codeAddress(add);
     	//以第一個陣列元素為地圖中心
     	//map.setCenter(arr[0].緯度Lat, arr[0].經度Lng);
     	var infowindow = new google.maps.InfoWindow();
 	    var map;
 		//以哪個緯經度中心來產生地圖
-	    var latlng = new google.maps.LatLng(arr[0].緯度Lat, arr[0].經度Lng);
+	    //var latlng = new google.maps.LatLng(convertLatLng);
 	    var myOptions = {
 	        zoom: 14,
-	        center: latlng,
+	        center: convertLatLng,
 	        mapTypeId: google.maps.MapTypeId.ROADMAP
 	        //ROADMAP 顯示 Google 地圖的正常、預設 2D 地圖方塊
 	    };
 	    //產生地圖
 	    map = new google.maps.Map($("#map")[0], myOptions); 
         //建立緯經度座標
-        var myLatlng = new google.maps.LatLng(arr[i].緯度Lat, arr[i].經度Lng);
+        //var myLatlng = new google.maps.LatLng(arr[i].緯度Lat, arr[i].經度Lng);
 		//加一個Marker到map中
         var image='img/toilet3.png';
         var marker = new google.maps.Marker({
-            position: myLatlng,
+            position: convertLatLng,
             map: map,
             icon:image,
             html:"<ul><li>名稱 : "+arr[i].name+"</li><li>地址 : "+arr[i].address+"</li></ul>"
@@ -226,12 +227,12 @@ function codeAddress(add){
 	var geocoder = new google.maps.Geocoder();
 	geocoder.geocode( { address: add}, function(results, status) {
 		if (status == google.maps.GeocoderStatus.OK) {
-			LatLng=results[0].geometry.location;
+			convertLatLng=results[0].geometry.location;
 		} else {
 				alert("Geocode was not successful for the following reason: " + status);
 		}
 	});
-}*/
+}
 
 //重設
 function clear1(){
