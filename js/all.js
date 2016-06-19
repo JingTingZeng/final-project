@@ -162,20 +162,15 @@ function printResult(arr){
 		geocoder.geocode( { address: add}, function(results, status) {
 			if (status == google.maps.GeocoderStatus.OK) {
 				convertLatLng=results[0].geometry.location;
-				map.setCenter(convertLatLng);
     			var infowindow = new google.maps.InfoWindow();
-	    		/*var map;
-				//以哪個緯經度中心來產生地圖
-	    		var latlng = new google.maps.LatLng(convertLatLng);
+	    		//產生地圖
+	    		var map;
 	    		var myOptions = {
 	        		zoom: 14,
-	        		//center: convertLatLng,
+	        		center: convertLatLng,
 	        		mapTypeId: google.maps.MapTypeId.ROADMAP
 	    		};
-	   			//產生地圖
-	    		map = new google.maps.Map($("#map")[0], myOptions); */
-        		//建立緯經度座標
-        		//var myLatlng = new google.maps.LatLng(convertLatLng);
+	    		map = new google.maps.Map($("#map")[0], myOptions); 
 				//加一個Marker到map中
        			var image='img/toilet3.png';
         		var marker = new google.maps.Marker({
