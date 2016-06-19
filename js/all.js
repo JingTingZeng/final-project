@@ -149,10 +149,10 @@ function init(){
 function printResult(arr){
 	var first=true;
     for( var i = 0; i < arr.length; i++){
+    	//以第一個陣列元素為地圖中心
+    	//map.setCenter(arr[0].緯度Lat, arr[0].經度Lng); 
         //建立緯經度座標
         var myLatlng = new google.maps.LatLng(arr[i].緯度Lat, arr[i].經度Lng);
-        //以第一個陣列元素為地圖中心
-    	map.setCenter(arr[0].緯度Lat, arr[0].經度Lng); 
 		//加一個Marker到map中
         var image='img/toilet3.png';
         var marker = new google.maps.Marker({
