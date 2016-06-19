@@ -27,7 +27,7 @@ function init(){
 	        };
 	        //產生地圖
 	        map = new google.maps.Map($("#map")[0], myOptions);
-	        for(i=0;i<data1.length;i++){
+	        /*for(i=0;i<data1.length;i++){
 		        var str;
 		        var area=data1[i].address;
 		        var type=data1[i].name;
@@ -49,7 +49,7 @@ function init(){
 				    });
 								
 		        }//End if(area.match("楠梓區"))
-	        }//End for(i=0;i<data1.length;i++)
+	        }//End for(i=0;i<data1.length;i++)*/
 	    });//End .then(function()
     }
     start();
