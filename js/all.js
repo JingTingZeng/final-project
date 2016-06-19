@@ -150,20 +150,19 @@ function printResult(arr){
 	var map;
 	var infowindow = new google.maps.InfoWindow();
 	for( var i = 0; i < arr.length; i++){
-		var add=arr[i].address;
-		var name=arr[i].name;
+		
 		var geocoder = new google.maps.Geocoder();
-		geocoder.geocode( { address: add}, function(results, status) {
+		geocoder.geocode( { address: arr[i].address}, function(results, status) {
 			if (status == google.maps.GeocoderStatus.OK) {
 				convertLatLng=results[0].geometry.location;
 				if(first==true){
 					var myOptions = {
-	        		zoom: 14,
-	        		center: convertLatLng,
-	        		mapTypeId: google.maps.MapTypeId.ROADMAP
-	    		};
-	    		map = new google.maps.Map($("#map")[0], myOptions);
-	    		first=false;
+		        		zoom: 14,
+		        		center: convertLatLng,
+		        		mapTypeId: google.maps.MapTypeId.ROADMAP
+	    			};
+	    			map = new google.maps.Map($("#map")[0], myOptions);
+	    			first=false;
 				} 
 				//加一個Marker到map中
        			var image='img/toilet3.png';
