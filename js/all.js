@@ -146,10 +146,10 @@ function init(){
 
 //將地址轉經緯再印出結果圖標的函式
 function printResult(arr){
-		var add=arr[0].address;
-		var name=arr[0].name;
+		var add1=arr[0].address;
+		var name1=arr[0].name;
 		var geocoder = new google.maps.Geocoder();
-		geocoder.geocode( { address: add}, function(results, status) {
+		geocoder.geocode( { address: add1}, function(results, status) {
 			if (status == google.maps.GeocoderStatus.OK) {
 				convertLatLng1=results[0].geometry.location;
     			var infowindow = new google.maps.InfoWindow();
@@ -167,7 +167,7 @@ function printResult(arr){
 	            	position: convertLatLng1,
 	            	map: map,
 	            	icon:image,
-	            	html:"<ul><li>名稱 : "+name+"</li><li>地址 : "+add+"</li></ul>"
+	            	html:"<ul><li>名稱 : "+name1+"</li><li>地址 : "+add1+"</li></ul>"
         		});
 				//點擊對話框事件    
 		        google.maps.event.addListener(marker, 'click', function(){ 
