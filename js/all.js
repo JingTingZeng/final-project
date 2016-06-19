@@ -150,9 +150,10 @@ function printResult(arr){
 	var map;
 	var infowindow = new google.maps.InfoWindow();
 	for( var i = 0; i < arr.length; i++){
-		
+		var add=arr[i].address;
+		var name=arr[i].name;
 		var geocoder = new google.maps.Geocoder();
-		geocoder.geocode( { address: arr[i].address}, function(results, status) {
+		geocoder.geocode( { address: add}, function(results, status) {
 			if (status == google.maps.GeocoderStatus.OK) {
 				convertLatLng=results[0].geometry.location;
 				if(first==true){
@@ -170,7 +171,7 @@ function printResult(arr){
 	            	position: convertLatLng,
 	            	map: map,
 	            	icon:image,
-	            	html:"<ul><li>名稱 : "+arr[i].name+"</li><li>地址 : "+arr[i].address+"</li></ul>"
+	            	html:"<ul><li>名稱 : "+name+"</li><li>地址 : "+add+"</li></ul>"
         		});
 				//點擊對話框事件    
 		        google.maps.event.addListener(marker, 'click', function(){ 
