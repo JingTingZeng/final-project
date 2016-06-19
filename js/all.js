@@ -183,7 +183,7 @@ function printResult(arr){
 			} else {
 					//alert("Geocode was not successful for the following reason: " + status);
 			}
-		}
+		});
 	}
 }
     /*for( var i = 0; i < arr.length; i++){
