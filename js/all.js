@@ -189,6 +189,6 @@ function printResult(arr){
 }
 
 //重設
-$(".clear1").click(function(){
+$("#clear1").click(function(){
   start();//回到初始位置
 });
