@@ -152,16 +152,16 @@ function printResult(arr){
 	for( var i in arr){
 		//var add=arr[i].address;
 		//var name=arr[i].name;
-		//var geocoder = new google.maps.Geocoder();
+		var geocoder = new google.maps.Geocoder();
 		
-		//geocoder.geocode( { address: add}, function(results, status) {
-			//if (status == google.maps.GeocoderStatus.OK) {
-				//convertLatLng=results[0].geometry.location;
+		geocoder.geocode( { address: arr[i].address}, function(results, status) {
+			if (status == google.maps.GeocoderStatus.OK) {
+				convertLatLng=results[0].geometry.location;
 				if(first==true){
 					var latlng = new google.maps.LatLng(arr[i].緯度Lat, arr[i].經度Lng);
 					var myOptions = {
 		        		zoom: 14,
-		        		center: latlng,
+		        		center: convertLatLng,
 		        		mapTypeId: google.maps.MapTypeId.ROADMAP
 	    			};
 	    			map = new google.maps.Map($("#map")[0], myOptions);
@@ -171,7 +171,7 @@ function printResult(arr){
 				//加一個Marker到map中
        			var image='img/toilet3.png';
         		var marker = new google.maps.Marker({
-	            	position: myLatlng,
+	            	position: convertLatLng,
 	            	map: map,
 	            	icon:image,
 	            	html:"<ul><li>名稱 : "+arr[i].name+"</li><li>地址 : "+arr[i].address+"</li></ul>"
@@ -182,10 +182,10 @@ function printResult(arr){
 		            infowindow.open(map,this);
 		        });
 
-			//} else {
+			} //else {
 					//alert("Geocode was not successful for the following reason: " + status);
 			//}
-		//});
+		});
 	}
 }
 
