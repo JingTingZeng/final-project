@@ -161,7 +161,8 @@ function printResult(arr){
 	        mapTypeId: google.maps.MapTypeId.ROADMAP
 	        //ROADMAP 顯示 Google 地圖的正常、預設 2D 地圖方塊
 	    };
-	    
+	    //產生地圖
+	    map = new google.maps.Map($("#map")[0], myOptions); 
         //建立緯經度座標
         var myLatlng = new google.maps.LatLng(arr[i].緯度Lat, arr[i].經度Lng);
 		//加一個Marker到map中
@@ -177,8 +178,6 @@ function printResult(arr){
             infowindow.setContent(this.html);
             infowindow.open(map,this);
         });
-        //產生地圖
-	    map = new google.maps.Map($("#map")[0], myOptions); 
     }
 }
 
