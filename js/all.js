@@ -182,7 +182,7 @@ function printResult(arr){
 		            infowindow.open(map,this);
 		        });
 
-			} //else {
+			//} //else {
 					//alert("Geocode was not successful for the following reason: " + status);
 			//}
 		//});
