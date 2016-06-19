@@ -147,14 +147,14 @@ function init(){
 //將地址轉經緯再印出結果圖標的函式
 function printResult(arr){
 	//以陣列第一個地址的經緯度為中心來產生地圖
-	var map;
+	/*var map;
 	var myOption = {
 	    /*zoom: 14,
 	    center: convertLatLng1,
 	    mapTypeId: google.maps.MapTypeId.ROADMAP*/
-	};
+	//};
 	//產生地圖
-	map = new google.maps.Map($("#map")[0], myOption);
+	//map = new google.maps.Map($("#map")[0], myOption);
 	for( var i = 0; i < arr.length; i++){
 		var add=arr[i].address;
 		var name=arr[i].name;
