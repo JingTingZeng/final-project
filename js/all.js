@@ -161,7 +161,7 @@ function printResult(arr){
 					var latlng = new google.maps.LatLng(arr[i].緯度Lat, arr[i].經度Lng);
 					var myOptions = {
 		        		zoom: 14,
-		        		center: convertLatLng,
+		        		center: latlng,
 		        		mapTypeId: google.maps.MapTypeId.ROADMAP
 	    			};
 	    			map = new google.maps.Map($("#map")[0], myOptions);
@@ -171,7 +171,7 @@ function printResult(arr){
 				//加一個Marker到map中
        			var image='img/toilet3.png';
         		var marker = new google.maps.Marker({
-	            	position: convertLatLng,
+	            	position: myLatlng,
 	            	map: map,
 	            	icon:image,
 	            	html:"<ul><li>名稱 : "+arr[i].name+"</li><li>地址 : "+arr[i].address+"</li></ul>"
