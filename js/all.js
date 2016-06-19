@@ -190,7 +190,17 @@ function printResult(arr){
     for( var i = 0; i < arr.length; i++){
     	var add=arr[i].address;
     	codeAddress(add);
-    	//以第一個陣列元素為地圖中心
+    	
+    }
+}
+
+//地址轉經緯度
+function codeAddress(add){
+	var geocoder = new google.maps.Geocoder();
+	geocoder.geocode( { address: add}, function(results, status) {
+		if (status == google.maps.GeocoderStatus.OK) {
+			convertLatLng=results[0].geometry.location;
+			//以第一個陣列元素為地圖中心
     	//map.setCenter(arr[0].緯度Lat, arr[0].經度Lng);
     	var infowindow = new google.maps.InfoWindow();
 	    var map;
@@ -219,15 +229,7 @@ function printResult(arr){
             infowindow.setContent(this.html);
             infowindow.open(map,this);
         });
-    }
-}
 
-//地址轉經緯度
-function codeAddress(add){
-	var geocoder = new google.maps.Geocoder();
-	geocoder.geocode( { address: add}, function(results, status) {
-		if (status == google.maps.GeocoderStatus.OK) {
-			convertLatLng=results[0].geometry.location;
 		} else {
 				alert("Geocode was not successful for the following reason: " + status);
 		}
