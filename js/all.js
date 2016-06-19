@@ -166,11 +166,11 @@ function printResult(arr){
 	   			//產生地圖
 	    		map = new google.maps.Map($("#map")[0], myOptions); 
         		//建立緯經度座標
-        		var myLatlng = new google.maps.LatLng(convertLatLng);
+        		//var myLatlng = new google.maps.LatLng(convertLatLng);
 				//加一個Marker到map中
        			var image='img/toilet3.png';
         		var marker = new google.maps.Marker({
-	            	position: myLatlng,
+	            	position: convertLatLng,
 	            	map: map,
 	            	icon:image,
 	            	html:"<ul><li>名稱 : "+name+"</li><li>地址 : "+add+"</li></ul>"
