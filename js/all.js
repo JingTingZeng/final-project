@@ -189,7 +189,7 @@ function printResult(arr){
 	//};
 	//產生地圖
 	//map = new google.maps.Map($("#map")[0], myOption);
-	for( var i = 0; i < arr.length; i++){
+	/*for( var i = 0; i < arr.length; i++){
 		var add=arr[i].address;
 		var name=arr[i].name;
 		var geocoder = new google.maps.Geocoder();
@@ -197,14 +197,14 @@ function printResult(arr){
 			if (status == google.maps.GeocoderStatus.OK) {
 				convertLatLng=results[0].geometry.location;
     			var infowindow = new google.maps.InfoWindow();
-	    		/*//產生地圖
+	    		//產生地圖
 	    		var map;
 	    		var myOptions = {
 	        		zoom: 14,
 	        		center: convertLatLng,
 	        		mapTypeId: google.maps.MapTypeId.ROADMAP
 	    		};
-	    		map = new google.maps.Map($("#map")[0], myOptions); */
+	    		map = new google.maps.Map($("#map")[0], myOptions); 
 				//加一個Marker到map中
        			var image='img/toilet3.png';
         		var marker = new google.maps.Marker({
@@ -223,7 +223,7 @@ function printResult(arr){
 					//alert("Geocode was not successful for the following reason: " + status);
 			}
 		});
-	}
+	}*/
 }
 
 //重設
