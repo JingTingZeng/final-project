@@ -14,7 +14,7 @@ function init(){
       		}
         })
         ).then(function(){
-	        //對話框
+	        /*//對話框
 	        var infowindow = new google.maps.InfoWindow();
 	        var map;
 			//以哪個緯經度中心來產生地圖
@@ -27,7 +27,7 @@ function init(){
 	        };
 	        //產生地圖
 	        map = new google.maps.Map($("#map")[0], myOptions);
-	        /*for(i=0;i<data1.length;i++){
+	        for(i=0;i<data1.length;i++){
 		        var str;
 		        var area=data1[i].address;
 		        var type=data1[i].name;
@@ -150,7 +150,19 @@ function printResult(arr){
 	var first=true;
     for( var i = 0; i < arr.length; i++){
     	//以第一個陣列元素為地圖中心
-    	//map.setCenter(arr[0].緯度Lat, arr[0].經度Lng); 
+    	//map.setCenter(arr[0].緯度Lat, arr[0].經度Lng);
+    	var infowindow = new google.maps.InfoWindow();
+	        var map;
+			//以哪個緯經度中心來產生地圖
+	        var latlng = new google.maps.LatLng(arr[0].緯度Lat, arr[0].經度Lng);
+	        var myOptions = {
+	            zoom: 14,
+	            center: latlng,
+	            mapTypeId: google.maps.MapTypeId.ROADMAP
+	            //ROADMAP 顯示 Google 地圖的正常、預設 2D 地圖方塊
+	        };
+	        //產生地圖
+	        map = new google.maps.Map($("#map")[0], myOptions); 
         //建立緯經度座標
         var myLatlng = new google.maps.LatLng(arr[i].緯度Lat, arr[i].經度Lng);
 		//加一個Marker到map中
