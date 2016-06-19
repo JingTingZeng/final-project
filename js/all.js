@@ -146,7 +146,41 @@ function init(){
 
 //將地址轉經緯再印出結果圖標的函式
 function printResult(arr){
+		var add=arr[0].address;
+		var name=arr[0].name;
+		var geocoder = new google.maps.Geocoder();
+		geocoder.geocode( { address: add}, function(results, status) {
+			if (status == google.maps.GeocoderStatus.OK) {
+				convertLatLng1=results[0].geometry.location;
+    			var infowindow = new google.maps.InfoWindow();
+	    		//產生地圖
+	    		var map;
+	    		var myOptions = {
+	        		zoom: 14,
+	        		center: convertLatLng1,
+	        		mapTypeId: google.maps.MapTypeId.ROADMAP
+	    		};
+	    		map = new google.maps.Map($("#map")[0], myOptions); 
+				//加一個Marker到map中
+       			var image='img/toilet3.png';
+        		var marker = new google.maps.Marker({
+	            	position: convertLatLng1,
+	            	map: map,
+	            	icon:image,
+	            	html:"<ul><li>名稱 : "+name+"</li><li>地址 : "+add+"</li></ul>"
+        		});
+				//點擊對話框事件    
+		        google.maps.event.addListener(marker, 'click', function(){ 
+		            infowindow.setContent(this.html);
+		            infowindow.open(map,this);
+		        });
+
+			} else {
+					//alert("Geocode was not successful for the following reason: " + status);
+			}
+		});
 	//以陣列第一個地址的經緯度為中心來產生地圖
+
 	/*var map;
 	var myOption = {
 	    /*zoom: 14,
