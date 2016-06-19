@@ -155,15 +155,12 @@ function printResult(arr){
         var myLatlng = new google.maps.LatLng(arr[i].緯度Lat, arr[i].經度Lng);
 		//加一個Marker到map中
         var image='img/toilet3.png';
-        var latlngbounds=new google.maps.LatLngBounds();
         var marker = new google.maps.Marker({
             position: myLatlng,
             map: map,
             icon:image,
             html:"<ul><li>名稱 : "+arr[i].name+"</li><li>地址 : "+arr[i].address+"</li></ul>"
         });
-        latlngbounds.extend(myLatlng);
-        map.fitBounds(latlngbounds);
 		//點擊對話框事件    
         google.maps.event.addListener(marker, 'click', function(){ 
             infowindow.setContent(this.html);
