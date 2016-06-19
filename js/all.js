@@ -154,13 +154,13 @@ function printResult(arr){
 			convertLatLng1=results[0].geometry.location;
     		var infowindow = new google.maps.InfoWindow();
 	    	var map;
-	    	var myOptions = {
+	    	var myOption = {
 	        	zoom: 14,
 	        	center: convertLatLng1,
 	        	mapTypeId: google.maps.MapTypeId.ROADMAP
 	    	};
 	    	//產生地圖
-			map = new google.maps.Map($("#map")[0], myOptions);
+			map = new google.maps.Map($("#map")[0], myOption);
 	    }else {
 			alert("Geocode was not successful for the following reason: " + status);
 		}
@@ -173,16 +173,16 @@ function printResult(arr){
 			if (status == google.maps.GeocoderStatus.OK) {
 				convertLatLng=results[0].geometry.location;
     			var infowindow = new google.maps.InfoWindow();
-	    		/*var map;
+	    		var map;
 				//以哪個緯經度中心來產生地圖
 	    		var latlng = new google.maps.LatLng(convertLatLng);
 	    		var myOptions = {
 	        		zoom: 14,
-	        		center: convertLatLng,
+	        		//center: convertLatLng,
 	        		mapTypeId: google.maps.MapTypeId.ROADMAP
 	    		};
 	   			//產生地圖
-	    		map = new google.maps.Map($("#map")[0], myOptions); */
+	    		map = new google.maps.Map($("#map")[0], myOptions); 
         		//建立緯經度座標
         		//var myLatlng = new google.maps.LatLng(convertLatLng);
 				//加一個Marker到map中
