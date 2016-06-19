@@ -157,7 +157,7 @@ function printResult(arr){
         var image='img/toilet3.png';
         var marker2 = new google.maps.Marker({
             position: myLatlng2,
-            map: map,
+            setMap: map,
             icon:image,
             html:"<ul><li>名稱 : "+arr[i].name+"</li><li>地址 : "+arr[i].address+"</li></ul>"
         });
