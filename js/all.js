@@ -197,14 +197,14 @@ function printResult(arr){
 			if (status == google.maps.GeocoderStatus.OK) {
 				convertLatLng=results[0].geometry.location;
     			var infowindow = new google.maps.InfoWindow();
-	    		//產生地圖
+	    		/*//產生地圖
 	    		var map;
 	    		var myOptions = {
 	        		zoom: 14,
 	        		center: convertLatLng,
 	        		mapTypeId: google.maps.MapTypeId.ROADMAP
 	    		};
-	    		map = new google.maps.Map($("#map")[0], myOptions); 
+	    		map = new google.maps.Map($("#map")[0], myOptions); */
 				//加一個Marker到map中
        			var image='img/toilet3.png';
         		var marker = new google.maps.Marker({
