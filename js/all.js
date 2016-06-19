@@ -55,7 +55,6 @@ function init(){
     start();
 	//查詢事件
     $(".search").click(function(){
-        //$('.Table tbody').empty();清空上次搜尋結果
         var select1=$('.selectArea').val();
         var select2=[];
             $("[name=Type]:checkbox:checked").each(function(){
@@ -147,6 +146,26 @@ function init(){
 
 //將地址轉經緯再印出結果圖標的函式
 function printResult(arr){
+	var add1=arr[0].address;
+	var geocoder1 = new google.maps.Geocoder();
+	geocoder1.geocode( { address: add1}, function(results, status) {
+		if (status == google.maps.GeocoderStatus.OK) {
+			convertLatLng1=results[0].geometry.location;
+    		var infowindow = new google.maps.InfoWindow();
+	    	var map;
+			//以陣列第一個地址的經緯度中心來產生地圖
+	    	//var latlng = new google.maps.LatLng(convertLatLng);
+	    	var myOptions = {
+	        	zoom: 14,
+	        	center: convertLatLng1,
+	        	mapTypeId: google.maps.MapTypeId.ROADMAP
+	    	};
+	    	//產生地圖
+			map = new google.maps.Map($("#map")[0], myOptions);
+	    }else {
+			alert("Geocode was not successful for the following reason: " + status);
+		}
+	});
 	for( var i = 0; i < arr.length; i++){
 		var add=arr[i].address;
 		var name=arr[i].name;
@@ -155,16 +174,16 @@ function printResult(arr){
 			if (status == google.maps.GeocoderStatus.OK) {
 				convertLatLng=results[0].geometry.location;
     			var infowindow = new google.maps.InfoWindow();
-	    		var map;
+	    		/*var map;
 				//以哪個緯經度中心來產生地圖
-	    		//var latlng = new google.maps.LatLng(convertLatLng);
+	    		var latlng = new google.maps.LatLng(convertLatLng);
 	    		var myOptions = {
 	        		zoom: 14,
 	        		center: convertLatLng,
 	        		mapTypeId: google.maps.MapTypeId.ROADMAP
 	    		};
 	   			//產生地圖
-	    		map = new google.maps.Map($("#map")[0], myOptions); 
+	    		map = new google.maps.Map($("#map")[0], myOptions); */
         		//建立緯經度座標
         		//var myLatlng = new google.maps.LatLng(convertLatLng);
 				//加一個Marker到map中
