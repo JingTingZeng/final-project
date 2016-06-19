@@ -149,7 +149,7 @@ function printResult(arr){
 	var first=true;
 	var map;
 	var infowindow = new google.maps.InfoWindow();
-	for( var i = 0; i < arr.length; i++){
+	for( var i in arr){
 		//var add=arr[i].address;
 		//var name=arr[i].name;
 		//var geocoder = new google.maps.Geocoder();
@@ -174,7 +174,7 @@ function printResult(arr){
 	            	position: myLatlng,
 	            	map: map,
 	            	icon:image,
-	            	html:"<ul><li>名稱 : "+name+"</li><li>地址 : "+add+"</li></ul>"
+	            	html:"<ul><li>名稱 : "+arr[i].name+"</li><li>地址 : "+arr[i].address+"</li></ul>"
         		});
 				//點擊對話框事件    
 		        google.maps.event.addListener(marker, 'click', function(){ 
