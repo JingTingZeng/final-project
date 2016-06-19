@@ -150,25 +150,28 @@ function printResult(arr){
 	var map;
 	var infowindow = new google.maps.InfoWindow();
 	for( var i = 0; i < arr.length; i++){
-		var add=arr[i].address;
-		var name=arr[i].name;
-		var geocoder = new google.maps.Geocoder();
-		geocoder.geocode( { address: add}, function(results, status) {
-			if (status == google.maps.GeocoderStatus.OK) {
-				convertLatLng=results[0].geometry.location;
+		//var add=arr[i].address;
+		//var name=arr[i].name;
+		//var geocoder = new google.maps.Geocoder();
+		
+		//geocoder.geocode( { address: add}, function(results, status) {
+			//if (status == google.maps.GeocoderStatus.OK) {
+				//convertLatLng=results[0].geometry.location;
 				if(first==true){
+					var latlng = new google.maps.LatLng(arr[i].緯度Lat, arr[i].經度Lng);
 					var myOptions = {
 		        		zoom: 14,
-		        		center: convertLatLng,
+		        		center: latlng,
 		        		mapTypeId: google.maps.MapTypeId.ROADMAP
 	    			};
 	    			map = new google.maps.Map($("#map")[0], myOptions);
 	    			first=false;
-				} 
+				}
+				var myLatlng = new google.maps.LatLng(arr[i].緯度Lat, arr[i].經度Lng); 
 				//加一個Marker到map中
        			var image='img/toilet3.png';
         		var marker = new google.maps.Marker({
-	            	position: convertLatLng,
+	            	position: myLatlng,
 	            	map: map,
 	            	icon:image,
 	            	html:"<ul><li>名稱 : "+name+"</li><li>地址 : "+add+"</li></ul>"
@@ -179,10 +182,10 @@ function printResult(arr){
 		            infowindow.open(map,this);
 		        });
 
-			} else {
+			//} else {
 					//alert("Geocode was not successful for the following reason: " + status);
-			}
-		});
+			//}
+		//});
 	}
 }
 
