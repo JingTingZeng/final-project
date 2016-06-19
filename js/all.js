@@ -154,7 +154,7 @@ function printResult(arr){
     	var infowindow = new google.maps.InfoWindow();
 	        var map;
 			//以哪個緯經度中心來產生地圖
-	        var latlng = new google.maps.LatLng(arr[0].緯度Lat, arr[0].經度Lng);
+	        var latlng = new google.maps.LatLng(22.729485001, 120.2922123);
 	        var myOptions = {
 	            zoom: 14,
 	            center: latlng,
@@ -163,6 +163,7 @@ function printResult(arr){
 	        };
 	        //產生地圖
 	        map = new google.maps.Map($("#map")[0], myOptions); 
+	        map.setCenter(arr[0].緯度Lat, arr[0].經度Lng);
         //建立緯經度座標
         var myLatlng = new google.maps.LatLng(arr[i].緯度Lat, arr[i].經度Lng);
 		//加一個Marker到map中
