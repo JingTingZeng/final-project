@@ -147,24 +147,14 @@ function init(){
 //將地址轉經緯再印出結果圖標的函式
 function printResult(arr){
 	//以陣列第一個地址的經緯度為中心來產生地圖
-	var add1=arr[0].address;
-	var geocoder1 = new google.maps.Geocoder();
-	geocoder1.geocode( { address: add1}, function(results, status) {
-		if (status == google.maps.GeocoderStatus.OK) {
-			convertLatLng1=results[0].geometry.location;
-    		var infowindow = new google.maps.InfoWindow();
-	    	var map;
-	    	var myOption = {
-	        	zoom: 14,
-	        	center: convertLatLng1,
-	        	mapTypeId: google.maps.MapTypeId.ROADMAP
-	    	};
-	    	//產生地圖
-			map = new google.maps.Map($("#map")[0], myOption);
-	    }else {
-			alert("Geocode was not successful for the following reason: " + status);
-		}
-	});
+	var map;
+	var myOption = {
+	    /*zoom: 14,
+	    center: convertLatLng1,
+	    mapTypeId: google.maps.MapTypeId.ROADMAP*/
+	};
+	//產生地圖
+	map = new google.maps.Map($("#map")[0], myOption);
 	for( var i = 0; i < arr.length; i++){
 		var add=arr[i].address;
 		var name=arr[i].name;
@@ -172,8 +162,9 @@ function printResult(arr){
 		geocoder.geocode( { address: add}, function(results, status) {
 			if (status == google.maps.GeocoderStatus.OK) {
 				convertLatLng=results[0].geometry.location;
+				map.setCenter(convertLatLng);
     			var infowindow = new google.maps.InfoWindow();
-	    		var map;
+	    		/*var map;
 				//以哪個緯經度中心來產生地圖
 	    		var latlng = new google.maps.LatLng(convertLatLng);
 	    		var myOptions = {
@@ -182,18 +173,17 @@ function printResult(arr){
 	        		mapTypeId: google.maps.MapTypeId.ROADMAP
 	    		};
 	   			//產生地圖
-	    		map = new google.maps.Map($("#map")[0], myOptions); 
+	    		map = new google.maps.Map($("#map")[0], myOptions); */
         		//建立緯經度座標
         		//var myLatlng = new google.maps.LatLng(convertLatLng);
 				//加一個Marker到map中
        			var image='img/toilet3.png';
         		var marker = new google.maps.Marker({
 	            	position: convertLatLng,
-	            	//map: map,
+	            	map: map,
 	            	icon:image,
 	            	html:"<ul><li>名稱 : "+name+"</li><li>地址 : "+add+"</li></ul>"
         		});
-        		marker.setMap(map);
 				//點擊對話框事件    
 		        google.maps.event.addListener(marker, 'click', function(){ 
 		            infowindow.setContent(this.html);
