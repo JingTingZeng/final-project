@@ -148,11 +148,10 @@ function init(){
 function printResult(arr){
 	var first=true;
 	var map;
-	
 	var infowindow = new google.maps.InfoWindow();
 	for( var i = 0; i < arr.length; i++){
 		var add=arr[i].address;
-	var name=arr[i].name;
+		var name=arr[i].name;
 		var geocoder = new google.maps.Geocoder();
 		geocoder.geocode( { address: add}, function(results, status) {
 			if (status == google.maps.GeocoderStatus.OK) {
