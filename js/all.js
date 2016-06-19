@@ -146,6 +146,7 @@ function init(){
 
 //將地址轉經緯再印出結果圖標的函式
 function printResult(arr){
+	//以陣列第一個地址的經緯度為中心來產生地圖
 	var add1=arr[0].address;
 	var geocoder1 = new google.maps.Geocoder();
 	geocoder1.geocode( { address: add1}, function(results, status) {
@@ -153,8 +154,6 @@ function printResult(arr){
 			convertLatLng1=results[0].geometry.location;
     		var infowindow = new google.maps.InfoWindow();
 	    	var map;
-			//以陣列第一個地址的經緯度中心來產生地圖
-	    	//var latlng = new google.maps.LatLng(convertLatLng);
 	    	var myOptions = {
 	        	zoom: 14,
 	        	center: convertLatLng1,
@@ -194,6 +193,7 @@ function printResult(arr){
 	            	icon:image,
 	            	html:"<ul><li>名稱 : "+name+"</li><li>地址 : "+add+"</li></ul>"
         		});
+        		map = new google.maps.Map($("#map")[0], merker);
 				//點擊對話框事件    
 		        google.maps.event.addListener(marker, 'click', function(){ 
 		            infowindow.setContent(this.html);
