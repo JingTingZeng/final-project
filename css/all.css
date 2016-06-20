@@ -1,0 +1,184 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+div{
+	font-family: "微軟正黑體";
+}
+.wrap{
+	width: 100%;
+	margin: auto;
+	background-color: #9CEAEF; 
+}
+.header{
+	height: 11%;
+	background-color: #C4FFF9;
+	margin-bottom: 20px;
+}
+.header h1{
+	width: 268px;
+	height: 70px;
+	margin-left: 40%;
+}
+.header h1 a{
+	width: 268px;
+	height: 70px;
+	display: block;
+	text-indent:-9999px;
+	background-image: url(images/logo.png);
+	background-repeat: no-repeat;
+}
+.content{
+	margin-bottom: 20px;
+}
+.slider_left img{
+	width: 35%;
+	height: 50%;
+	float: left;
+	margin-bottom: 20px;
+}
+.introduction{
+	width: 30%;
+	height: 50%;
+	background-color: #68D8D6;
+	float: left;
+}
+.introduction p{
+	margin-top: 35%;
+	margin-left: 35%;
+}
+.slider_right img{
+	width: 35%;
+	height: 50%;
+	float: right;
+	margin-bottom: 20px;
+}
+.search{
+	width: 80%;
+	padding-top: 10px;
+	padding-left: 10px;
+	padding-bottom: 10px;
+	line-height: 1.5; 
+	margin-left: 10%;
+	margin-bottom: 20px;
+	background-color: #3DCCC7;
+	position: relative;
+}
+.button{
+	width: 100px;
+	height: 50px;
+	position: absolute;
+	right: 20px;
+	bottom: 20px;
+}
+.map{
+	width: 80%;
+	height: 70%;
+	margin-left: 10%;
+	margin-bottom: 20px;
+	background-color: white;
+}
+.footer{
+	background-color: #C4FFF9;
+	text-align: center;
+	line-height: 1.5;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	font-size: 10px;
+}
+.clear{
+	clear: both;
+}
+
+@media only screen and (max-width: 768px) {
+.wrap{
+	width: 100%;
+	margin: auto;
+	position: relative;	 
+}
+.header{
+	position: relative;
+	margin-bottom: 5%;
+}
+.header h1{
+	width: 50%;
+	position: absolute;
+	left: 5%;
+}
+.header h1 a{
+	width: 50%;
+	display: block;
+	text-indent:-9999px;
+	background-image: url(images/logo.png);
+	background-repeat: no-repeat;
+}
+}
+
+@media only screen and (max-width: 320px) {
+.wrap{
+	width: 100%;
+	margin: auto;
+	position: relative;	 
+}
+.header{
+	position: relative;
+	margin-bottom: 10px;
+}
+.header h1{
+	width: 100%;
+	position: absolute;
+	left: 5%;
+}
+.header h1 a{
+	width: 100%;
+	display: block;
+	text-indent:-9999px;
+	background-image: url(images/logo.png);
+	background-repeat: no-repeat;
+}
+}
