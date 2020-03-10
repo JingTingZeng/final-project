@@ -1,90 +1,209 @@
-//google map
-/*function initialize() {
-	var mapOptions = {
-	   	zoom: 8,//縮放層級
-	    center: new google.maps.LatLng(120.22, 22.44)//經緯度
-	};
-
-	var map = new google.maps.Map(document.getElementById('map-canvas'),mapOptions);
-}
-google.maps.event.addDomListener(window, 'load', initialize);
-//延後載入地圖
-function loadScript() {
-	var script = document.createElement('script');
-	script.type = 'text/javascript';
-	script.src = 'https://maps.googleapis.com/maps/api/js?v=3.exp' +
-	      '&signed_in=true&callback=initialize';
-	document.body.appendChild(script);
-}
-window.onload = loadScript;*/
-
-$(function (){
-	/*$.ajax({
-            type:'GET',
-            url:'http://data.kaohsiung.gov.tw/Opendata/DownLoad.aspx?Type=2&CaseNo1=AH&CaseNo2=5&FileType=2&Lang=C&FolderType=U',
-            //dataType: 'json', 
-            success:function(data){
-            	var thisdata = JSON.parse(data);
-              	for(i=0;i<data.length;i++){
-		            var str;
-		            str='<tr><td>'+thisdata[i].name+'</td><td>'+thisdata[i].address+'</td></tr>'; 
-		            $('.Table').append(str);
-	        	}
+//網頁動畫
+//顯示 & 隱藏註解
+function show_remark(x){
+    var id = 'remark_' + x;
+    document.getElementById(id).style.display = 'block';
+};
+function hide_remark(x){
+    var id = 'remark_' + x;			    
+    document.getElementById(id).style.display = 'none';
+};
+//map+搜尋
+$(document).ready(init);
+function init(){
+	//初始位置(列出楠梓區所有的點)
+	function start(){
+	var data1;
+    $.when(
+        $.ajax({
+        	type:'GET',
+        	url:'http://data.kaohsiung.gov.tw/Opendata/DownLoad.aspx?Type=2&CaseNo1=AH&CaseNo2=5&FileType=2&Lang=C&FolderType=U',
+        	async: false,
+        	dataType: 'json', 
+        	success:function(data){
+        		data1=data; 
       		}
-    })*/
-    $(".search").click(function(){
-        var data1;
+        })
+        ).then(function(){
+	        //對話框
+	        var infowindow = new google.maps.InfoWindow();
+	        var map;
+			//以哪個緯經度中心來產生地圖
+	        var latlng = new google.maps.LatLng(22.729485001, 120.2922123);
+	        var myOptions = {
+	            zoom: 14,
+	            center: latlng,
+	            mapTypeId: google.maps.MapTypeId.ROADMAP
+	            //ROADMAP 顯示 Google 地圖的正常、預設 2D 地圖方塊
+	        };
+	        //產生地圖
+	        map = new google.maps.Map($("#map")[0], myOptions);
+	        for(i=0;i<data1.length;i++){
+		        var str;
+		        var area=data1[i].address;
+		        var type=data1[i].name;
+		        if(area.match("楠梓區")){
+					//建立緯經度座標
+	                var myLatlng = new google.maps.LatLng(data1[i].緯度Lat, data1[i].經度Lng);
+	                //加一個Marker到map中
+	                var image='img/toilet3.png';
+	                var marker = new google.maps.Marker({
+	                    position: myLatlng,
+	                    map: map,
+	                    icon:image,
+	                    html:"<ul><li>名稱 : "+type+"</li><li>地址 : "+area+"</li></ul>"
+	                });
+				    //點擊對話框事件    
+				    google.maps.event.addListener(marker, 'click', function(){ 
+				        infowindow.setContent(this.html);
+				        infowindow.open(map,this);
+				    });
+								
+		        }//End if(area.match("楠梓區"))
+	        }//End for(i=0;i<data1.length;i++)
+	    });//End .then(function()
+    }
+    start();
+	//查詢事件
+    $(".btn").click(function(){
+        var select1=$('.selectArea').val();
+        var select2=[];
+            $("[name=Type]:checkbox:checked").each(function(){
+                select2.push($(this).val());
+                console.log(select2.length);
+            });
+        var select3=$("input[name=accessible]:checked").val();
+        //若沒選擇區域會彈出提醒視窗
+        if(select1 == "null"){
+            alert("請選擇區域");
+            $('.selectArea').focus();
+            return false;
+        }
+        var data2;
         $.when(
           	$.ajax({
             type:'GET',
             url:'http://data.kaohsiung.gov.tw/Opendata/DownLoad.aspx?Type=2&CaseNo1=AH&CaseNo2=5&FileType=2&Lang=C&FolderType=U',
+            async: false,
             dataType: 'json', 
             success:function(data){
-              data1=data; 
+              data2=data; 
       		  }
           	})
         ).then(function(){
-        var select1=$('.selectArea').val();
-        var select2=[];
-            $("[name=Type]:checkbox:checked").each(function(){
-              select2.push($(this).val());
-              console.log(select2);
-            });
-        var select3=$("input[name=accessible]:checked").val();
-        
-        if(select1 !== "null"){
-        	for(i=0;i<data1.length;i++){
-	            var str;
-	            var area=data1[i].address;
-	            var type=data1[i].name;
-	                if(area.match(select1)){
-	                	if(type.match(select2)){
-	                		if(type.match(select3)){
-	                			str='<tr><td>'+type+'</td><td>'+area+'</td></tr>'; 
-	                        	$('.Table').append(str);
-	                		}
-	                	}/*else{
-	                		str='<tr><td>'+type+'</td><td>'+area+'</td></tr>'; 
-	                       	$('.Table').append(str);
-	                	}*/
-	                }/*else{
-	                	str='<tr><td>'+type+'</td><td>'+area+'</td></tr>'; 
-	                    $('.Table').append(str);
-	                }*/
+            var arr1 = new Array();//arr1:全部條件皆符合的結果
+            var arr2 = new Array();//arr2:符合部分條件的的結果 
+            var arr3 = new Array();//arr3:符合單一條件的的結果
+            if( select3 != "No" ){ //查詢須包含殘障廁所
+                //for(i=0;i<data1.length;i++){ 
+            	for(i=0;i<5393;i++){  //第5393筆(鳳山區公有第一市場男廁)資料後又開始重複
+    	            var str;
+                  	var area=data2[i].address;
+    	            var type=data2[i].name;
+                    if( area.match(select1) && type.match(select3)){ //該資料符合"障"的公廁名字
+                        //新增select2沒有選擇的判斷式
+                        if( select2.length === 0 ){
+                          arr1.push(data2[i]);
+                        }else{
+                          for(j=0;j<select2.length;j++){
+                              select=select2[j];
+                              if(type.match(select)){
+                                  arr1.push(data2[i]);
+                              }
+                          }
+                        }
+                    }else if(area.match(select1)){ //該資料未符合"障"的公廁名字
+                        //新增select2沒有選擇的判斷式
+                       if( select2.length === 0 ){
+                          arr2.push(data2[i]);
+                        }else{
+                          for(x=0;x<select2.length;x++){
+                            select=select2[x];
+                            if(type.match(select)){ //該資料符合區域及類型
+                                arr2.push(data2[i]);
+                            }else{
+                                arr3.push(data2[i]);
+                            }
+                          }
+                        }
+                    }     
+                }
+                if( arr1.length > 0 ){
+                    printResult(arr1);
+                }else if( arr2.length > 0 ){
+                    alert('在'+$(".selectArea").find(":selected").text()+'查不到此類型公廁的無障礙公廁');
+                    printResult(arr2);
+                }else if( arr3.length > 0){
+                    alert('在'+$(".selectArea").find(":selected").text()+'查不到無障礙廁所');
+                    printResult(arr3);
+                }
+            }else{ //查詢不用包含殘障廁所
+                for(i=0;i<5393;i++){  //第5393筆(鳳山區公有第一市場男廁)資料後又開始重複
+                    var area=data2[i].address;
+                    var type=data2[i].name;
+                    if( area.match(select1)){ //該資料符合區域及類型
+                        //新增select2沒有選擇的判斷式
+                        if( select2.length === 0 ){
+                          arr1.push(data2[i]);
+                        }else{
+                          for(j=0;j<select2.length;j++){
+                              select=select2[j];
+                              if(type.match(select)){
+                                  arr1.push(data2[i]);
+                              }else{
+                                  arr2.push(data2[i]);
+                              }
+                          }
+                        }
+                    }
+                }
+                if( arr1.length > 0 ){
+                    printResult(arr1);
+                }else if( arr2.length > 0 ){
+                    alert('在'+$(".selectArea").find(":selected").text()+'查不到此類型的公廁');
+                    printResult(arr2);
+                }else {
+                    alert('在'+$(".selectArea").find(":selected").text()+'查不到公廁');
+                }
             }
-        }/*else if(select1 == "null" && select2 =="null"){
-        	for(i=0;i<data1.length;i++){
-	            var str;
-	            var area=data1[i].address;
-	            var type=data1[i].name;
-	            str='<tr><td>'+type+'</td><td>'+area+'</td></tr>'; 
-	            $('.Table').append(str);
-	        }
-        } */
-        
         });
-    });
-}); 
+    });//End $(".search").click(function()
+} //End $(function init()
 
+//將地址轉經緯再印出結果圖標的函式
+function printResult(arr){
+	var first=true;
+	var map;
+	var infowindow = new google.maps.InfoWindow();
+	for( var i in arr){
+				if(first==true){
+					var latlng = new google.maps.LatLng(arr[i].緯度Lat, arr[i].經度Lng);
+					var myOptions = {
+		        		zoom: 14,
+		        		center: latlng,
+		        		mapTypeId: google.maps.MapTypeId.ROADMAP
+	    			};
+	    			map = new google.maps.Map($("#map")[0], myOptions);
+	    			first=false;
+				}
+				var myLatlng = new google.maps.LatLng(arr[i].緯度Lat, arr[i].經度Lng); 
+				//加一個Marker到map中
+       			var image='img/toilet3.png';
+        		var marker = new google.maps.Marker({
+	            	position: myLatlng,
+	            	map: map,
+	            	icon:image,
+	            	html:"<ul><li>名稱 : "+arr[i].name+"</li><li>地址 : "+arr[i].address+"</li></ul>"
+        		});
+				//點擊對話框事件    
+		        google.maps.event.addListener(marker, 'click', function(){ 
+		            infowindow.setContent(this.html);
+		            infowindow.open(map,this);
+		        });
+	}
+}
 
-	
+//重設
+$("#clear1").click(function(){
+  start();//回到初始位置
+});
