@@ -1,21 +1,18 @@
 <html prefix='og: http://ogp.me/ns#'>
 	<head>
-		<title>高雄市公廁查詢平台</title>
+		<title>高雄公廁查詢平台</title>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta name="viewport" content="initial-scale=1.0">
-		<meta property="og:title" content="高雄市公廁查詢平台"></meta>
-		<meta property="og:url" content="http://yuchun9508.github.io/web/final"></meta>
-		<meta property="og:image" content="https://raw.githubusercontent.com/yuchun9508/web/gh-pages/final/img/logo.png"></meta>
+		<meta property="og:title" content="高雄公廁查詢平台"></meta>
+		<meta property="og:url" content="http://jingtingzeng.github.io/publicToilet/"></meta>
+		<meta property="og:image" content="http://jingtingzeng.github.io/publicToilet/img/logo.png"></meta>
 		<meta property="og:description" content="給你最美好的公廁體驗"></meta>
 		<meta property="og:site_name" content="匆衝沖"></meta>
 		<link rel="icon" href="img/icon.ico" type="image/x-icon" />
-    	<link rel="stylesheet" href="css/final.css" />
-    	<script src="js/jquery-2.2.3.min.js"></script>
-		<script src="js/all.js"></script>
-		<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCknlxvag2rxj7motXBam-9Y8v-55BmYzo">
-		</script>
-		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAi35-yU-lu6neNaObs6M4OZYVvHFNz1MA&callback=initMap"></script>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.6.0/leaflet.css" />
+		<link rel="stylesheet" href="css/final.css" />
+		
 	</head>
 	<body>
 		<div class="wrap">
@@ -111,10 +108,10 @@
 					<div class="clear"></div>
 					<div class="barrier_free">
 						<div>無障礙公廁</div> 
-						<input type="radio" name ="accessible" value="殘障" id="yes"><label for="yes">需要</label>
+						<input type="radio" name ="accessible" value="無障礙" id="yes"><label for="yes">需要</label>
 						<input type="radio" name ="accessible" value="No" id="no" checked><label for="no">不需要</label>
 					</div>
-					<input class="btn" type="button" value="查詢">	
+					<input id="searchBtn" class="btn" type="button" value="查詢">	
 				</div>
 				<div class="logo">
 					<h1><a href="#">高雄公廁查詢網站</a></h1>	
@@ -123,8 +120,16 @@
 			</div>
 			<div class="clear"></div>
 			<div class="footer">
-				Design By Jing-Ting Zeng, Yu-Chun Wu<br/>Copyright © 2016 國立高雄大學資管系<br/>Data Source : <a href="http://data.kaohsiung.gov.tw/Opendata/DetailList.aspx?CaseNo1=AH&CaseNo2=5&Lang=C&FolderType=U" target="_blank">高雄市政府開放資料平台-公廁位置API</a>	
+				Design By Jing-Ting Zeng, Yu-Chun Wu<br/>Copyright © 2016 國立高雄大學資管系<br/>Data Source : <a href="https://data.gov.tw/dataset/30794" target="_blank">政府開放資料平台-全國公廁建檔資料</a>	
 			</div>
 		</div>
+
+		<script src="js/jquery-2.2.3.min.js"></script>
+		
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.6.0/leaflet-src.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.6.0/leaflet-src.js.map"></script>
+
+		<script src="js/all.js"></script>
+		
 	</body>
 </html>

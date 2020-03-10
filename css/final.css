@@ -42,7 +42,10 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
-html, body {height: 100%;}
+html, body {
+	height: 100%;
+	background-color: #6AAFE6;
+}
 /*start*/
 div{
 	font-family: "微軟正黑體";
@@ -50,14 +53,13 @@ div{
 .wrap{
 	width: 100%;
 	margin: 0 auto;
-	background-color: #6AAFE6; 
 }
 .header{
 	height: 7%;
-	background-color: #6AAFE6;
 }
 .content{
-	background-color: #6AAFE6;
+	display: flex;
+	margin-bottom: 50px;
 }
 .search{
 	width: 30%;
@@ -316,7 +318,7 @@ input[type=radio]:checked + label {
 }
 #map{
 	width: 30%;
-	height: 85%;
+	/* height: 85%; */
 	background-color: white;
 	border-radius: 20px;
 	float: left;
@@ -350,6 +352,7 @@ input[type=radio]:checked + label {
 	height: 3%;
 }
 .content{
+	display: block;
 	width: 85%;
 	margin: 0 auto;
 }
