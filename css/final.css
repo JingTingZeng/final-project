@@ -1,0 +1,477 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd,fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+html, body {
+	height: 100%;
+	background-color: #6AAFE6;
+}
+/*start*/
+div{
+	font-family: "微軟正黑體";
+}
+.wrap{
+	width: 100%;
+	margin: 0 auto;
+}
+.header{
+	height: 7%;
+}
+.content{
+	display: flex;
+	margin-bottom: 50px;
+}
+.search{
+	width: 30%;
+	line-height: 1.5; 
+	margin-left: 5%;
+	background-color: #a5dff9;
+	border-radius: 20px;
+	float: left;
+	position: relative;
+}
+select {
+    width: 85%;
+    margin-top: 7%;
+    margin-left: 8%;
+    font-family: "微軟正黑體";
+    font-size: 16px;
+    padding: 16px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: #f1f1f1;
+}
+.selectType{
+	width: 85%;
+	margin-top: 3%;
+	margin-left: 8%;
+	font-family: "微軟正黑體";
+	font-size: 16px;
+	background-color: #f1f1f1;
+	border: none;
+    border-radius: 4px;
+}
+.title{
+	padding: 16px 20px;
+	border-bottom-color: #c9d6de;
+	border-bottom-style: inset;
+	border-bottom-width: 2px;
+}
+.selection_style_2{
+	display: none;
+}
+/*註解樣式, 預設隱藏*/
+div .remark{
+  position: absolute;
+  background-color: #6d819c;
+  opacity: 0.7;
+  border-radius: 4px;
+  color: white;
+  font-family: "微軟正黑體";
+  display:none;
+}
+/*註解位置*/
+div #remark_1{
+	top: 30%;
+	left: 25%;
+}
+div #remark_2{
+	top: 30%;
+	left: 45%;
+}
+div #remark_3{
+	top: 30%;
+	left: 63%;
+}
+div #remark_4{
+	top: 30%;
+	left: 80%;
+}
+div #remark_5{
+	top: 43%;
+	left: 25%;
+}
+div #remark_6{
+	top: 43%;
+	left: 43%;
+}
+div #remark_7{
+	top: 43%;
+	left: 63%;
+}
+div #remark_8{
+	top: 43%;
+	left: 80%;
+}
+div #remark_9{
+	top: 57%;
+	left: 25%;
+}
+div #remark_10{
+	top: 57%;
+	left: 43%;
+}
+input[type=checkbox]{
+    display:none;
+}
+input[type=checkbox]:checked + label {
+	opacity: 0.3;
+}
+input[type=checkbox][id=temple] + label {
+    background: url("images/temple.png") no-repeat;
+    height: 75px;
+    width: 75px;
+    display:inline-block;
+    float: left;
+    margin-top: 2%;
+    margin-left: 2%;
+}
+input[type=checkbox][id=park] + label {
+    background: url("images/park.png") no-repeat;
+    height: 75px;
+    width: 75px;
+    display:inline-block;
+    float: left;
+    margin-top: 2%;
+    margin-left: 2%;
+}
+input[type=checkbox][id=school] + label {
+    background: url("images/school.png") no-repeat;
+    height: 75px;
+    width: 75px;
+    display:inline-block;
+    float: left;
+    margin-top: 2%;
+    margin-left: 2%;
+}
+input[type=checkbox][id=gas_station] + label {
+    background: url("images/gas_station.png") no-repeat;
+    height: 75px;
+    width: 75px;
+    display:inline-block;
+    float: left;
+    margin-top: 2%;
+    margin-left: 2%;
+}
+input[type=checkbox][id=convenient_store] + label {
+    background: url("images/convenient_store.png") no-repeat;
+    height: 75px;
+    width: 75px;
+    display:inline-block;
+    float: left;
+    margin-top: 2%;
+    margin-left: 2%;
+}
+input[type=checkbox][id=fastfood] + label {
+    background: url("images/fastfood.png") no-repeat;
+    height: 75px;
+    width: 75px;
+    display:inline-block;
+    float: left;
+    margin-top: 2%;
+    margin-left: 2%;
+}
+input[type=checkbox][id=supermarket] + label {
+    background: url("images/supermarket.png") no-repeat;
+    height: 75px;
+    width: 75px;
+    display:inline-block;
+    float: left;
+    margin-top: 2%;
+    margin-left: 2%;
+}
+input[type=checkbox][id=department_store] + label {
+    background: url("images/department_store.png") no-repeat;
+    height: 75px;
+    width: 75px;
+    display:inline-block;
+    float: left;
+    margin-top: 2%;
+    margin-left: 2%;
+}
+input[type=checkbox][id=hospital] + label {
+    background: url("images/hospital.png") no-repeat;
+    height: 75px;
+    width: 75px;
+    display:inline-block;
+    float: left;
+    margin-top: 2%;
+    margin-left: 2%;
+    margin-bottom: 2%;
+}
+input[type=checkbox][id=government_agent] + label {
+    background: url("images/government_agent.png") no-repeat;
+    height: 75px;
+    width: 75px;
+    display:inline-block;
+    margin-top: 2%;
+    margin-left: 2%;
+    margin-bottom: 2%;
+}
+.barrier_free{
+	width: 77%;
+    margin-top: 3%;
+    margin-left: 8%;
+    font-family: "微軟正黑體";
+    font-size: 16px;
+    padding: 16px;
+    border: none;
+    border-radius: 4px;
+    background-color: #f1f1f1;
+}
+.barrier_free div{
+	width: 32%;
+	float: left;
+	margin-right: 8%;
+	border-right-color: #c9d6de;
+	border-right-style: inset;
+	border-right-width: 2px;
+}
+input[type=radio]{
+    display:none;
+}
+input[type=radio] + label {
+    width: 25%;
+    text-align: center;
+    background-color: #C5E99B;
+    border-radius: 4px;
+    color: white;
+    display:inline-block;
+}
+input[type=radio]:checked + label {
+    background-color: #75D701;
+}
+.btn{
+	width: 85%;
+    margin-top: 3%;
+    margin-left: 8%;
+    margin-bottom: 7%;
+    font-family: "微軟正黑體";
+    font-size: 16px;
+    padding: 8px 20px;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    background-color: #52616a;
+}
+.btn:hover{
+	background-color: #9baec8;
+}
+.logo{
+	width: 30%;
+	height: auto;
+	background-color: #6AAFE6;
+	float: left;
+}
+.logo h1 a{
+	width: 100%;
+	height: 100%;
+	display: block;
+	margin: 0 auto;
+	margin-top: 10%;
+	text-indent:-9999px;
+	background-image: url(images/logo.png);
+	background-repeat: no-repeat;
+}
+.logo h1 a:hover{
+	background-image: url(images/slogan.png);
+}
+#map{
+	width: 30%;
+	/* height: 85%; */
+	background-color: white;
+	border-radius: 20px;
+	float: left;
+}
+.footer{
+	height: 9%;
+	background-color: #6AAFE6;
+	text-align: center;
+	line-height: 1.5;
+	font-size: 10px;
+}
+.footer a{
+	text-decoration: none;
+}
+.footer a:hover{
+	text-decoration: underline;
+}
+.footer a:active{
+	color: gray;
+}
+.clear{
+	clear: both;
+}
+
+@media only screen and (max-width: 768px) {
+.wrap{
+	width: 100%;
+	height: auto;
+}
+.header{
+	height: 3%;
+}
+.content{
+	display: block;
+	width: 85%;
+	margin: 0 auto;
+}
+.search{
+	width: 100%;
+	height: auto;
+	margin: auto;
+	margin-bottom: 5%;
+}
+.selection_style_1{
+	display: none;
+}
+.selection_style_2{
+	display: block;
+}
+.selection_style_2 input[type=checkbox] + label {
+	background: unset;
+	width: 20%;
+	height: auto;
+    text-align: center;
+    background-color: #e77e4d;
+    border-radius: 4px;
+    color: white;
+    display:inline-block;
+    margin-top: 2%;
+    margin-left: 4%;
+    margin-bottom: 2%;
+}
+.selection_style_2 input[type=checkbox]:checked + label {
+    background-color: #FFBC42;
+}
+.barrier_free{
+	width: 80%;
+}
+.logo{
+	width: 10%;
+	background-color: unset;
+	z-index: 10000;
+	position: fixed;
+	top: 40%;
+	left: 0%;
+}
+.logo h1 a{
+	width: 82px;
+	height: 93px;
+	display: block;
+	margin: 0 auto;
+	margin-top: 10%;
+	text-indent:-9999px;
+	background-image: url(images/logo_768.png);
+	background-repeat: no-repeat;
+}
+.logo h1 a:hover{
+	background-image: unset;
+}
+#map{
+	width: 100%;
+	height: 50%;
+	float: none;
+}
+.footer{
+	margin-top: 5%;
+}
+}
+@media only screen and (max-width: 320px) {
+.wrap{
+	width: 100%;
+	height: auto;
+}
+.header{
+	height: 3%;
+}
+.content{
+	width: 85%;
+	margin: 0 auto;
+}
+.search{
+	width: 100%;
+	height: auto;
+	margin: auto;
+	margin-bottom: 5%;
+}
+.selection_style_1{
+	display: none;
+}
+.selection_style_2{
+	display: block;
+}
+.selection_style_2 input[type=checkbox] + label {
+	background: unset;
+	font-size: 14px;
+	width: 30%;
+    text-align: center;
+    background-color: #e77e4d;
+    border-radius: 4px;
+    color: white;
+    display:inline-block;
+    margin-top: 2%;
+    margin-left: 12%;
+}
+.selection_style_2 input[type=checkbox]:checked + label {
+    background-color: #FFBC42;
+}
+.barrier_free{
+	width: 74%;
+    font-family: "微軟正黑體";
+    font-size: 12px;
+    padding: 16px;
+}
+.logo{
+	display: none;
+}
+#map{
+	width: 100%;
+	height: 50%;
+	float: none;
+}
+.footer{
+	margin-top: 5%;
+	height: 12%;
+}
+}

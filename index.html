@@ -1,114 +1,26 @@
-<!--<!DOCTYPE html>
-<html>
-  <head>
-    <title>public WC</title>
-    <meta name="viewport" content="initial-scale=1.0">
-    <link rel="stylesheet" href="css/all.css" />
-    <meta charset="utf-8">
-    <style>
-      html, body {height: 100%;margin: 0;padding: 0;}
-      #map {height: 80%;width: 70%;}
-    </style>
-	<script src="js/jquery-2.2.3.min.js"></script>
-	<script src="js/all.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCfWp_3WyCa91tR0WlezEbKDifHdRh97sk&callback=initMap"></script>
-  </head>
-  <body>
-  	<h1>匆衝沖</h1>
-    
-    <div class="DropDownList">
-    <form>
-		<p>挑選適合您的宣洩環境</p>
-		高雄市地區 : 
-		<select class="selectArea">
-			<option value="null" selected>請選擇地區 </option>
-			<option value="楠梓區">楠梓區</option>
-			<option value="左營區">左營區</option>
-			<option value="鼓山區">鼓山區</option>
-			<option value="三民區">三民區</option>
-			<option value="苓雅區">苓雅區</option>
-			<option value="新興區">新興區</option>
-			<option value="前金區">前金區</option>
-			<option value="鹽埕區">鹽埕區</option>
-			<option value="前鎮區">前鎮區</option>
-			<option value="旗津區">旗津區</option>
-			<option value="小港區">小港區</option>
-			<option value="鳳山區">鳳山區</option>
-			<option value="茂林區">茂林區</option>
-			<option value="甲仙區">甲仙區</option>
-			<option value="六龜區">六龜區</option>
-			<option value="杉林區">杉林區</option>
-			<option value="美濃區">美濃區</option>
-			<option value="內門區">內門區</option>
-			<option value="仁武區">仁武區</option>
-			<option value="田寮區">田寮區</option>
-			<option value="旗山區">旗山區</option>
-			<option value="梓官區">梓官區</option>
-			<option value="阿蓮區">阿蓮區</option>
-			<option value="湖內區">湖內區</option>
-			<option value="岡山區">岡山區</option>
-			<option value="茄萣區">茄萣區</option>
-			<option value="路竹區">路竹區</option>
-			<option value="鳥松區">鳥松區</option>
-			<option value="永安區">永安區</option>
-			<option value="燕巢區">燕巢區</option>
-			<option value="大樹區">大樹區</option>
-			<option value="大寮區">大寮區</option>
-			<option value="林園區">林園區</option>
-			<option value="彌陀區">彌陀區</option>
-			<option value="橋頭區">橋頭區</option>
-			<option value="大社區">大社區</option>
-			<option value="瑪雅村">那瑪夏區</option>
-			<option value="桃源區">桃源區</option>
-		</select><br/>
-		公廁類型 : 
-		<label><input type="checkbox" name="Type" value="宮">廟</label>
-		<label><input type="checkbox" name="Type" value="公園">公園</label>
-		<label><input type="checkbox" name="Type" value="醫院">醫院</label>
-		<label><input type="checkbox" name="Type" value="國">學校</label>
-		<label><input type="checkbox" name="Type" value="速食店">速食店</label>
-		<label><input type="checkbox" name="Type" value="加油站">加油站</label>
-		<label><input type="checkbox" name="Type" value="大賣場">大賣場</label>
-		<label><input type="checkbox" name="Type" value="便利商店">便利商店</label>
-		<label><input type="checkbox" name="Type" value="百貨公司">百貨公司</label>
-		<label><input type="checkbox" name="Type" value="所">政府機構</label><br/>
-		無障礙公廁 : 
-		<label><input type="radio" name ="accessible" value="障">需要</label>
-		<label><input type="radio" name ="accessible" value="No" checked>不需要</label>
-
-		<input type="button" class="button" value="查詢">
-		<input type="reset" id="clear1">
-		</form>
-	</div>
-	<div id="map"></div>
-  </body>
-</html>-->
-<html>
+<html prefix='og: http://ogp.me/ns#'>
 	<head>
+		<title>高雄公廁查詢平台</title>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    	<link rel="stylesheet" href="css/all.css" />
+		<meta name="viewport" content="initial-scale=1.0">
+		<meta property="og:title" content="高雄公廁查詢平台"></meta>
+		<meta property="og:url" content="http://jingtingzeng.github.io/publicToilet/"></meta>
+		<meta property="og:image" content="http://jingtingzeng.github.io/publicToilet/img/logo.png"></meta>
+		<meta property="og:description" content="給你最美好的公廁體驗"></meta>
+		<meta property="og:site_name" content="匆衝沖"></meta>
+		<link rel="icon" href="img/icon.ico" type="image/x-icon" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.6.0/leaflet.css" />
+		<link rel="stylesheet" href="css/final.css" />
+		
 	</head>
 	<body>
 		<div class="wrap">
-			<div class="header">
-				<h1><a href="#">公廁查詢網站</a></h1>
-			</div>
+			<div class="header"></div>
 			<div class="content">
-				<div class="slider_left">
-					<img src="http://www.newmap.com.tw/hyfiles/bigegg-photo/hotnews/skyline/skyline_20141110_02.jpg">
-				</div>
-				<div class="introduction">
-					<p>給你最美好的公廁體驗</p>	
-				</div>
-				<div class="slider_right">
-					<img src="http://static.ettoday.net/images/356/d356537.jpg">
-				</div>
-				<div class="clear"></div>
-				<div class="search">
-					高雄市地區 : 
+				<div class="search"> 
 					<select class="selectArea">
-						<option value="null" selected>--請選擇地區-- </option>
+						<option value="null" selected>--選擇高雄市地區--</option>
 						<option value="楠梓區">楠梓區</option>
 						<option value="左營區">左營區</option>
 						<option value="鼓山區">鼓山區</option>
@@ -128,7 +40,7 @@
 						<option value="美濃區">美濃區</option>
 						<option value="內門區">內門區</option>
 						<option value="仁武區">仁武區</option>
-						<option value="田寮區">田寮區</option>
+						<option value="田寮區'">田寮區</option>
 						<option value="旗山區">旗山區</option>
 						<option value="梓官區">梓官區</option>
 						<option value="阿蓮區">阿蓮區</option>
@@ -145,38 +57,79 @@
 						<option value="彌陀區">彌陀區</option>
 						<option value="橋頭區">橋頭區</option>
 						<option value="大社區">大社區</option>
-						<option value="那瑪夏區">那瑪夏區</option>
+						<option value="瑪雅村">那瑪夏區</option>
 						<option value="桃源區">桃源區</option>
 					</select><br/>
-					公廁類型 : 
-					<input type="checkbox" name="Type" value="宮">廟
-					<input type="checkbox" name="Type" value="公園">公園
-					<input type="checkbox" name="Type" value="醫院">醫院
-					<input type="checkbox" name="Type" value="國">學校
-					<input type="checkbox" name="Type" value="速食店">速食店
-					<input type="checkbox" name="Type" value="加油店">加油店
-					<input type="checkbox" name="Type" value="大賣場">大賣場
-					<input type="checkbox" name="Type" value="便利商店">便利商店
-					<input type="checkbox" name="Type" value="百貨公司">百貨公司
-					<input type="checkbox" name="Type" value="所">政府機構
-					<input type="checkbox" name="Type" value="其它">其它<br />
-					無障礙公廁 : 
-					<label><input type="radio" name ="accessible" value="殘障">需要</label>
-					<label><input type="radio" name ="accessible" value="No" checked>不需要</label>
+					<div class="selectType">
+						<div class="title">選擇公廁類型</div>
+						<div class="selection_style_1">
+							<div id='remark_1' class='remark'>廟</div><div onMouseOver='show_remark(1)' onMouseOut='hide_remark(1)'><input type="checkbox" name="Type" value="宮" id="temple"><label for="temple"></label></div>
 
-					<input type="button" class="button" value="查詢">	
+							<div id='remark_2' class='remark'>公園</div><div onMouseOver='show_remark(2)' onMouseOut='hide_remark(2)'><input type="checkbox" name="Type" value="公園" id="park"><label for="park"></label></div>
+
+							<div id='remark_3' class='remark'>學校</div><div onMouseOver='show_remark(3)' onMouseOut='hide_remark(3)'><input type="checkbox" name="Type" value="國" id="school"><label for="school"></label></div>
+
+							<div id='remark_4' class='remark'>加油站</div><div onMouseOver='show_remark(4)' onMouseOut='hide_remark(4)'><input type="checkbox" name="Type" value="加油站" id="gas_station"><label for="gas_station"></label></div>
+
+							<div id='remark_5' class='remark'>超商</div><div onMouseOver='show_remark(5)' onMouseOut='hide_remark(5)'><input type="checkbox" name="Type" value="便利商店" id="convenient_store"><label for="convenient_store"></label></div>
+
+							<div id='remark_6' class='remark'>速食店</div><div onMouseOver='show_remark(6)' onMouseOut='hide_remark(6)'><input type="checkbox" name="Type" value="速食店" id="fastfood"><label for="fastfood"></label></div>
+
+							<div id='remark_7' class='remark'>大賣場</div><div onMouseOver='show_remark(7)' onMouseOut='hide_remark(7)'><input type="checkbox" name="Type" value="大賣場" id="supermarket"><label for="supermarket"></label></div>
+
+							<div id='remark_8' class='remark'>百貨公司</div><div onMouseOver='show_remark(8)' onMouseOut='hide_remark(8)'><input type="checkbox" name="Type" value="百貨公司" id="department_store"><label for="department_store"></label></div>
+
+							<div id='remark_9' class='remark'>醫院</div><div onMouseOver='show_remark(9)' onMouseOut='hide_remark(9)'><input type="checkbox" name="Type" value="醫院" id="hospital"><label for="hospital"></label></div>
+
+							<div id='remark_10' class='remark'>政府機關</div><div onMouseOver='show_remark(10)' onMouseOut='hide_remark(10)'><input type="checkbox" name="Type" value="所" id="government_agent"><label for="government_agent"></label></div>
+						</div>
+						<div class="selection_style_2">
+							<input type="checkbox" name="Type" value="宮" id="temple2"><label for="temple2">廟</label>
+
+							<input type="checkbox" name="Type" value="公園" id="park2"><label for="park2">公園</label>
+
+							<input type="checkbox" name="Type" value="國" id="school2"><label for="school2">學校</label>
+
+							<input type="checkbox" name="Type" value="加油站" id="gas_station2"><label for="gas_station2">加油站</label>
+
+							<input type="checkbox" name="Type" value="便利商店" id="convenient_store2"><label for="convenient_store2">超商</label>
+
+							<input type="checkbox" name="Type" value="速食店" id="fastfood2"><label for="fastfood2">速食店</label>
+
+							<input type="checkbox" name="Type" value="大賣場" id="supermarket2"><label for="supermarket2">大賣場</label>
+
+							<input type="checkbox" name="Type" value="百貨公司" id="department_store2"><label for="department_store2">百貨公司</label>
+
+							<input type="checkbox" name="Type" value="醫院" id="hospital2"><label for="hospital2">醫院</label>
+
+							<input type="checkbox" name="Type" value="所" id="government_agent2"><label for="government_agent2">政府機關</label>
+						</div>
+					</div>
+					<div class="clear"></div>
+					<div class="barrier_free">
+						<div>無障礙公廁</div> 
+						<input type="radio" name ="accessible" value="無障礙" id="yes"><label for="yes">需要</label>
+						<input type="radio" name ="accessible" value="No" id="no" checked><label for="no">不需要</label>
+					</div>
+					<input id="searchBtn" class="btn" type="button" value="查詢">	
 				</div>
-				<div class="map">
-					<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d29440.565413206717!2d120.28036471015939!3d22.725614280585464!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346e0fa0730d26e7%3A0xaef1117848c0aa25!2zODEx6auY6ZuE5biC5qWg5qKT5Y2A!5e0!3m2!1szh-TW!2stw!4v1465802118596" frameborder="0" style="border:0" allowfullscreen></iframe>	
+				<div class="logo">
+					<h1><a href="#">高雄公廁查詢網站</a></h1>	
 				</div>
+				<div id="map"></div>
 			</div>
+			<div class="clear"></div>
 			<div class="footer">
-				2016 Web Final Project<br/>
-				Design By Jing-Ting Zeng, Yu-Chun Wu
+				Design By Jing-Ting Zeng, Yu-Chun Wu<br/>Copyright © 2016 國立高雄大學資管系<br/>Data Source : <a href="https://data.gov.tw/dataset/30794" target="_blank">政府開放資料平台-全國公廁建檔資料</a>	
 			</div>
 		</div>
+
+		<script src="js/jquery-2.2.3.min.js"></script>
+		
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.6.0/leaflet-src.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.6.0/leaflet-src.js.map"></script>
+
+		<script src="js/all.js"></script>
+		
 	</body>
 </html>
-
-
-
