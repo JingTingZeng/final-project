@@ -21,28 +21,33 @@ var getData = $.ajax({
                 return item;
             } 
         });
+        console.log(toiletData);
     }
 })
 
 //map 初始化設定
 var myMapOptions = {
-    zoom: 13,
+    zoom: 15,
     center: [22.729485001, 120.2922123],
     mapUrl: "https://api.tiles.mapbox.com/v4/mapbox.streets/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoiamluZ3RpbmciLCJhIjoiY2s2ZGN5b2Z2MDEwMjNlcDgzejV0bDlicSJ9.4Of7k2GAZSujGrM9y380Ow"
 };
 var map;
-
+var markersLayer = new L.LayerGroup();
 //初始位置(列出楠梓區所有的點)
 function start(){
     $.when(getData).done(function () {
-        map = L.map("map").setView(myMapOptions.center, myMapOptions.zoom);
-        L.tileLayer(myMapOptions.mapUrl).addTo(map);
-
+        var first = true;
         for( var i = 0 ; i < toiletData.length ; i++ ){
             var city = toiletData[i].City;
             var name = toiletData[i].Name;
             var address = toiletData[i].Address;
             if( city == "楠梓區" ){
+                if(first){
+                    var latlng = [parseFloat(toiletData[i].Latitude), parseFloat(toiletData[i].Longitude)];
+                    map = L.map("map").setView(latlng, myMapOptions.zoom);
+                    L.tileLayer(myMapOptions.mapUrl).addTo(map);
+                    first = false;
+                }
                 var myLatlng = [parseFloat(toiletData[i].Latitude), parseFloat(toiletData[i].Longitude)];
                 //建立緯經度座標
                 var marker = L.marker(myLatlng,
@@ -52,9 +57,10 @@ function start(){
                 )
                 var popupContent = "<ul><li>名稱 : "+ name + "</li><li>地址 : " + address + "</li></ul>";
                 marker.bindPopup(popupContent).openPopup();
-                marker.addTo(map);
+                markersLayer.addLayer(marker); 
             }
         }
+        markersLayer.addTo(map);
     });
 };
 
@@ -128,8 +134,8 @@ function init(){
                         if( selectType.length === 0 ){
                             arr1.push(toiletData[i]);
                         }else{
-                            for( var j = 0 ; j < selectType.length ; j++ ){
-                                if( type.match( selectType[j] ) ){
+                            for( var z = 0 ; z < selectType.length ; z++ ){
+                                if( type.match( selectType[z] ) ){
                                     arr1.push(toiletData[i]);
                                 }else{
                                     arr2.push(toiletData[i]);
@@ -153,16 +159,16 @@ function init(){
 
 //將地址轉經緯再印出結果圖標的函式
 function printResult(arr){
+    markersLayer.clearLayers();
     var first = true;
-
     for( var i in arr ){
         if(first){
             map.setView(new L.LatLng(parseFloat(arr[i].Latitude), parseFloat(arr[i].Longitude)), 14);
             first = false;
         }
         var myLatlng = [parseFloat(arr[i].Latitude), parseFloat(arr[i].Longitude)];
-        var name = toiletData[i].Name;
-        var address = toiletData[i].Address;
+        var name = arr[i].Name;
+        var address = arr[i].Address;
         var marker = L.marker(myLatlng,
             {
                 icon: L.icon({iconUrl: "img/toilet3.png"})
@@ -170,8 +176,9 @@ function printResult(arr){
         )
         var popupContent = "<ul><li>名稱 : "+ name + "</li><li>地址 : " + address + "</li></ul>";
         marker.bindPopup(popupContent).openPopup();
-        marker.addTo(map);
+        markersLayer.addLayer(marker); 
     }
+    markersLayer.addTo(map);
 }
 
 //重設
