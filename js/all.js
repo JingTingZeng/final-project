@@ -17,11 +17,10 @@ var getData = $.ajax({
     dataType: 'json', 
     success:function(data){
         toiletData = data.filter(function(item){
-            if(item.Country === "高雄市"){
+            if(item.Country == "高雄市"){
                 return item;
             } 
         });
-        console.log(toiletData);
     }
 })
 
